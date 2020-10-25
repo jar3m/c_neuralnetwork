@@ -13,8 +13,8 @@ then
 	log_file=$1
 fi
 
-time ./all examples/iris/config > $log_file
-gprof all gmon.out > ./profile/prof_output
+time ./prometheus examples/iris/config > $log_file
+gprof ./prometheus gmon.out > ./profile/prof_output
 rm gmon.out
 
 grep Expected $log_file  >./profile/some
