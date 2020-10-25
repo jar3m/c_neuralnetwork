@@ -15,9 +15,9 @@ void predict_network(t_neural_network *nwk, float *in, float *out, int n_out)
 {
 	int i;
 	feed_forward(nwk, in);
-#if IRIS_DATA
+#if PRINT_OUT_ONLY
 	printf ("Expected output :");
-	for(i = 0; i < 3; i++)
+	for(i = 0; i < nwk->o_layer->n_output; i++)
 		printf( "(%f %f) ", out[i], nwk->o_layer->output[i]);
 	printf("\n");
 #else
