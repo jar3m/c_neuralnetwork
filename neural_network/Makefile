@@ -2,9 +2,9 @@
 export CC
 export NN_PATH
 
-include $(NN_PATH)/Defs.make
-
-
+#include $(NN_PATH)/Defs.make
+include ../Defs.make
+NN_PATH=../
 LDLIBS +=  -lm -pg
 
 INCLUDES += -I $(NN_PATH)/neural_network/inc/
@@ -17,7 +17,10 @@ nn_def_OBJ=bin/nn_def.o
 nn_algo_SRC=src/nn_algo.c
 nn_algo_OBJ=bin/nn_algo.o
 
-nn_ARCHIVE=$(NN_PATH)/neural_network/bin/neural_network.a
+nn_interface_SRC=src/nn_interface.c
+nn_interface_OBJ=bin/nn_interface.o
+
+nn_ARCHIVE=$(NN_PATH)/neural_network/bin/neural_network.so
 
 $(nn_def_OBJ): $(nn_def_SRC)
 	$(CC) $(INCLUDES) -c $^ -o $@ $(CFLAGS) 
@@ -25,10 +28,14 @@ $(nn_def_OBJ): $(nn_def_SRC)
 $(nn_algo_OBJ): $(nn_algo_SRC)
 	$(CC) $(INCLUDES) -c $^ -o $@ $(CFLAGS) 
 
-OBJS += $(nn_def_OBJ) $(nn_algo_OBJ)
+$(nn_interface_OBJ): $(nn_interface_SRC)
+	$(CC) $(INCLUDES) -c $^ -o $@ $(CFLAGS) 
+
+OBJS += $(nn_interface_OBJ) $(nn_def_OBJ) $(nn_algo_OBJ) 
 
 all: $(OBJS)
-	ar rcs $(nn_ARCHIVE) $(OBJS)
+	#ar rcs $(nn_ARCHIVE) $(OBJS)
+	$(CC) -shared -o $(nn_ARCHIVE) $(OBJS)
 
 .PHONY: clean
 

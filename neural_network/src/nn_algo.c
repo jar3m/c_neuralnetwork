@@ -1,6 +1,6 @@
 #include "nn_def.h" //todo
 
-static void feed_forward_layer(t_layer *l) 
+void feed_forward_layer(t_layer *l) 
 {
 	int i,j;
 	float linear_out;
@@ -33,7 +33,7 @@ static void feed_forward_layer(t_layer *l)
 	}
 }
 
-static void back_propogate_layer(t_layer *l, float eta) 
+void back_propogate_layer(t_layer *l, float eta) 
 {
 	int i, j;
 	float err_op;
@@ -88,6 +88,7 @@ void feed_forward(t_neural_network *nwk, float *input)
 
 }
 
+
 void back_propogate(t_neural_network *nwk, float *output)
 {
 	int i;
@@ -107,3 +108,4 @@ void back_propogate(t_neural_network *nwk, float *output)
 //		print_layer(nwk->h_layer[i]);
 	}while (i);
 }
+
