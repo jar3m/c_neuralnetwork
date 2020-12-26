@@ -1,0 +1,83 @@
+{
+
+   "neural_nw_config":{
+
+      "neural_nw_type":"regresss",
+
+      "num_input":100,
+
+      "num_output":10,
+
+      "learning_rate":0.10,
+
+      "num_hidden_layers":5,
+
+      "hl_prop":[
+
+         {
+
+            "actv_fn":"",
+
+            "num_nodes":10
+
+         },
+
+         {
+
+            "actv_fn":"",
+
+            "num_nodes":10
+
+         },
+
+         {
+
+            "actv_fn":"",
+
+            "num_nodes":10
+
+         },
+
+         {
+
+            "actv_fn":"",
+
+            "num_nodes":10
+
+         },
+
+         {
+
+            "actv_fn":"",
+
+            "num_nodes":10
+
+         }
+
+      ],
+
+      "normalization":"L1"
+
+   },
+
+   "neural_network_test":{
+
+      "train_file_path":"train.data",
+
+      "test_file_path":"test.data",
+
+      "scaled_input":true,
+
+      "scaled_output":true,
+
+      "mean_deviaion_fname":"mean.dev",
+
+      "std_deviaion_fname":"std.dev",
+
+      "training_method":"batch",
+
+      "epochs":69
+
+   }
+
+}

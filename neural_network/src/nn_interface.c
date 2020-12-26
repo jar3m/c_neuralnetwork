@@ -7,7 +7,18 @@ t_nn_cfg* get_nn_config(int nhdn)
 
 	temp->hinfo = malloc(sizeof(t_lyrinfo) * nhdn);
 
+	printf("num_hidden_layers = %d\n", nhdn);
+
 	return temp;
+}
+
+t_kon * konichiwa(int k)
+{
+	t_kon * kon = calloc(1, sizeof(t_kon));
+  printf("konichiwa\n");
+	kon->val = k;
+	
+	return kon;
 }
 
 t_neural_network* create_neural_network(t_nn_cfg *config)
