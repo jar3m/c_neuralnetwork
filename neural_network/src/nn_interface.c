@@ -68,6 +68,7 @@ t_neural_network* create_neural_network(t_nn_cfg *config)
 	// join final hidden layer with output layer
 	join_layers(temp->h_layer[i-1], temp->o_layer);
 #endif
+	free(config->hinfo);
 	return temp;
 }
 
