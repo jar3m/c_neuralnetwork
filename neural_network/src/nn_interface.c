@@ -12,13 +12,12 @@ t_nn_cfg* get_nn_config(int nhdn)
 	return temp;
 }
 
-t_kon * konichiwa(int k)
+void konichiwa(void)
 {
 	t_kon * kon = calloc(1, sizeof(t_kon));
   printf("konichiwa\n");
-	kon->val = k;
+	kon->val = 3;
 	
-	return kon;
 }
 
 t_neural_network* create_neural_network(t_nn_cfg *config)
