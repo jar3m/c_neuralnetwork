@@ -1,13 +1,26 @@
 #include "../../common/inc/os.h"
 #include "nn_interface.h"
 
-t_nn_cfg* get_nn_config(int nhdn)
+t_nn_cfg* get_nn_config(int nhdn, float eta)
 {
-	t_nn_cfg *temp = malloc(sizeof(t_nn_cfg));
+	t_nn_cfg *temp = (t_nn_cfg *)calloc(1, sizeof(t_nn_cfg));
 
-	temp->hinfo = malloc(sizeof(t_lyrinfo) * nhdn);
+	temp->hinfo = (t_lyrinfo *)calloc(1, sizeof(t_lyrinfo) * nhdn);
 
 	printf("num_hidden_layers = %d\n", nhdn);
+
+	printf("eta = %f", eta);
+
+	temp->type = 1;
+	temp->eta = eta;
+	temp->n_in = 5;
+	temp->n_out = 4;
+	temp->n_hdn = nhdn;
+	for (int i = 0; i < nhdn; i++) {
+	  temp->hinfo[i].size = 1;
+	  temp->hinfo[i].layer_type = 1;
+	  temp->hinfo[i].actv = 1;
+	}
 
 	return temp;
 }
