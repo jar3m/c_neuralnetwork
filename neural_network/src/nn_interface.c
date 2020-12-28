@@ -1,52 +1,9 @@
 #include "../../common/inc/os.h"
 #include "nn_interface.h"
 
-t_nn_cfg* get_nn_config(int nhdn, float eta)
+
+void* create_neural_network(t_nn_cfg config)
 {
-	t_nn_cfg *temp = (t_nn_cfg *)calloc(1, sizeof(t_nn_cfg));
-
-	temp->hinfo = (t_lyrinfo *)calloc(1, sizeof(t_lyrinfo) * nhdn);
-
-	printf("num_hidden_layers = %d\n", nhdn);
-
-	printf("eta = %f", eta);
-
-	temp->type = 1;
-	temp->eta = eta;
-	temp->n_in = 5;
-	temp->n_out = 4;
-	temp->n_hdn = nhdn;
-	for (int i = 0; i < nhdn; i++) {
-	  temp->hinfo[i].size = 1;
-	  temp->hinfo[i].layer_type = 1;
-	  temp->hinfo[i].actv = 1;
-	}
-
-	return temp;
-}
-
-void konichiwa(void)
-{
-	t_kon * kon = calloc(1, sizeof(t_kon));
-  printf("konichiwa\n");
-	kon->val = 3;
-	
-}
-
-t_neural_network* create_neural_network(t_nn_cfg *config)
-{
-#if 1
-	t_neural_network *temp = malloc(sizeof(t_neural_network));
-	int i;
-	printf("type:%d\n",config->type);
-	printf("eta:%lf\n",config->eta);
-	printf("n_in:%d\n",config->n_in);
-	printf("n_out:%d\n",config->n_out);
-	printf("n_hdn:%d\n",config->n_hdn);
-	printf("oactvfn:%d\n",config->oactv);
-	for(i = 0; i < config->n_hdn; i++)
-		printf("{%d %d %d}\n",config->hinfo[i].size,config->hinfo[i].layer_type,config->hinfo[i].actv);
-#else
 	t_neural_network *temp = malloc(sizeof(t_neural_network));
 	int i;
 	time_t t = time(0);
@@ -90,14 +47,15 @@ t_neural_network* create_neural_network(t_nn_cfg *config)
 	
 	// join final hidden layer with output layer
 	join_layers(temp->h_layer[i-1], temp->o_layer);
-#endif
-	free(config->hinfo);
+
 	return temp;
 }
 
-void destroy_neural_network(t_neural_network *nwk)
+void destroy_neural_network(void *obj)
 {
 	int i;
+	t_neural_network *nwk = (t_neural_network*)obj;
+	
 
 	destroy_layer(nwk->i_layer);
 	destroy_layer(nwk->o_layer);

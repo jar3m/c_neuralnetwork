@@ -3,7 +3,6 @@
 #include <stdbool.h>
 
 
-//#define MAX_LAYERS					1
 #define WEIGHT_UPPER_LIMIT	1
 #define WEIGHT_LOWER_LIMIT	0
 
