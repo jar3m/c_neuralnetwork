@@ -1,4 +1,4 @@
-#include "nn_def.h" //todo
+#include "nn_def.h" 
 
 void feed_forward_layer(t_layer *l) 
 {

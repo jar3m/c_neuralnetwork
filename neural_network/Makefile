@@ -2,9 +2,9 @@
 export CC
 export NN_PATH
 
-#include $(NN_PATH)/Defs.make
-include ../Defs.make
-NN_PATH=../
+include $(NN_PATH)/Defs.make
+
+
 LDLIBS +=  -lm -pg
 
 INCLUDES += -I $(NN_PATH)/neural_network/inc/

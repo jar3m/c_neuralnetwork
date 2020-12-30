@@ -1,4 +1,4 @@
-#include "../../common/inc/os.h"
+#include "os.h"
 #include "nn_interface.h"
 
 
