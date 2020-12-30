@@ -14,12 +14,10 @@
    },
 
    "neural_network_test":{
-      "train_file_path":"/mnt/d/workspace/linux/n_n/examples/iris/iris.csv",
-      "test_file_path":"test.data",
-      "scaled_input":false,
-      "scaled_output":true,
-      "mean_deviaion_fname":"mean.dev",
-      "std_deviaion_fname":"std.dev",
+      "test_file":"/mnt/d/workspaces/linux/n_n/examples/iris/iris.csv",
+	  "input_names":["sepal_length","sepal_width","petal_length","petal_width"]
+      "scaled_input":true,
+      "scaled_output":false,
       "training_method":"batch",
       "epochs":1
    }

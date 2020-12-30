@@ -73,26 +73,32 @@ void destroy_neural_network(void *obj)
 }
 
 
-void train_network(t_neural_network *nwk,float *in, float *out) 
+void train_network(t_neural_network *nwk, t_sample train)
 {
-	feed_forward(nwk, in);
-	back_propogate(nwk, out);
+	feed_forward(nwk, train.in);
+	back_propogate(nwk, train.out);
 //	printf("Expected output %f %f\n", in[0], nwk->o_layer->output[0]);
 }
 
 
-void predict_network(t_neural_network *nwk, float *in, float *out, int n_out)
+void predict_network(t_neural_network *nwk, t_sample test)
 {
 	int i;
-	feed_forward(nwk, in);
+	feed_forward(nwk, test.in);
+
 #if PRINT_OUT_ONLY
 	printf ("Expected output :");
 	for(i = 0; i < nwk->o_layer->n_output; i++)
-		printf( "(%f %f) ", out[i], nwk->o_layer->output[i]);
+		printf( "(%f %f) ", test.out[i], nwk->o_layer->output[i]);
 	printf("\n");
 #else
 	for(i = 0; i < 1; i++)
-		printf("Expected output %f %f %f\n", in[i], out[i], nwk->o_layer->output[i]);
+		printf("Expected output %f %f %f\n", test.in[i], test.out[i], nwk->o_layer->output[i]);
 #endif
+	
+	for (i = 0; i < nwk->o_layer->n_output; i++) {
+		test.out[i] = nwk->o_layer->output[i];
+		test.error[i] = nwk->o_layer->error[i];
+	}
 }
 

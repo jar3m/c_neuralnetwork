@@ -2,6 +2,12 @@
 #include "nn_def.h"
 
 typedef struct {
+	float *in;
+	float *out;
+	float *error;
+} t_sample;
+
+typedef struct {
 	e_nntype type;
 	float eta;
 	int n_in;
@@ -14,5 +20,5 @@ typedef struct {
 
 void* create_neural_network(t_nn_cfg config);
 void destroy_neural_network(void *nwk);
-void train_network(t_neural_network *nwk,float *in, float *out);
-void predict_network(t_neural_network *nwk, float *in, float *out, int n_out);
+void train_network(t_neural_network *nwk, t_sample train);
+void predict_network(t_neural_network *nwk, t_sample test);
