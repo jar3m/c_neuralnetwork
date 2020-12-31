@@ -1,5 +1,5 @@
 {
-	 "neural_nw_lib_path": "/mnt/d/workspaces/linux/n_n/neural_network/bin/neural_network.so",
+	 "neural_nw_lib_path": "/home/harsha/Blind_Centaur/project/nn/n_n/neural_network/bin/neural_network.so",
    "neural_nw_config":{
       "neural_nw_type":"REGRESS",
       "num_input":4,
@@ -14,8 +14,8 @@
    },
 
    "neural_network_test":{
-      "test_file":"/mnt/d/workspaces/linux/n_n/examples/iris/iris.csv",
-	  "input_names":["sepal_length","sepal_width","petal_length","petal_width"]
+      "test_file":"/home/harsha/Blind_Centaur/project/nn/n_n/examples/iris/iris.csv",
+	  "input_names":["sepal_length","sepal_width","petal_length","petal_width"],
       "scaled_input":true,
       "scaled_output":false,
       "training_method":"batch",
