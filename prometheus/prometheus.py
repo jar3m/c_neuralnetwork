@@ -4,7 +4,6 @@ import sys, getopt
 import json
 from ctypes import *
 import os
-import pandas
 import csv
 import time
 
@@ -37,6 +36,7 @@ class t_nn_cfg(Structure):
         ("hinfo", POINTER(t_lyrinfo)),
     ]
 
+    
 
 class neural_network(object):
     def __init__(self):
@@ -75,11 +75,18 @@ class std_typedefs(object):
         self.actv = {"LINEAR": 0, "RELU": 1, "SIGMOID": 2}
         self.norm = {"L1": 0, "L2": 1}
 
+class t_sample(Structure):
+    _fields_ = [("input",POINTER(c_float)), ("output",POINTER(c_float)), ("error", POINTER(c_float))]
 
 class prometheus(object):
     def __init__(self):
         print("Creating Prometheus")
         self.nn = neural_network()
+        self.data = None
+
+    def read_data_set(self, testcfg):
+        csv_file = open(testcfg["test_file"]) 
+        self.set = csv.reader(csv_file, delimiter=",")
 
     # Parse json cfg file and create nn cfg params
     def parse_configs(self):
@@ -88,27 +95,8 @@ class prometheus(object):
             self.nw_lib_path = config_dict["neural_nw_lib_path"]
             self.nn.update_config(config_dict["neural_nw_config"])
             testcfg = config_dict["neural_network_test"]
-            print(testcfg["test_file"])
-            start_time = time.time()
-            df = pandas.read_csv(testcfg["test_file"])
-            print(df)
-            end_time = time.time()
-            print(end_time - start_time)
-
-            start_time = time.time()
-            with open(testcfg["test_file"]) as csv_file:
-                csv_reader = csv.reader(csv_file, delimiter=",")
-                line_count = 0
-                for row in csv_reader:
-                    if line_count == 0:
-                        print(f'Column names are {", ".join(row)}')
-                        line_count += 1
-                    else:
-                        print(f"{row[:]}\n")
-                        line_count += 1
-            end_time = time.time()
-            print(end_time - start_time)
-
+            self.read_data_set(testcfg)
+       
     # fetch cmd line params
     def fetch_configs(self, argv):
         print("Fething configs for prometheus")
@@ -127,7 +115,7 @@ class prometheus(object):
             elif opt in ("-o", "--ofile"):
                 self.out_file = arg
         print("Input file is ", self.cfg_file)
-        # 	   print ('Output file is ', self.out_file)
+        #print ('Output file is ', self.out_file)
         self.parse_configs()
 
     # Create  Neural Network Structure and Bind NN C lib
@@ -136,13 +124,52 @@ class prometheus(object):
         self.nn.init_lib(self.nw_lib_path)
         self.nn.obj = self.nn.create(self.nn.cfg)
 
+
     # Destroy Neural Network
     def destroy_brain(self):
         print("* prometheus brain dead *")
         self.nn.destroy(self.nn.obj)
 
 
+    def get_data_set(self,nin,nout):
+        data = (t_sample * 1)()
+        data.input  = (c_float * nin)()
+        data.output = (c_float * nout)()
+        data.error  = (c_float * nout)()
+        return data
+
+    def fetch_test_train_data(self):
+        self.featurename =(next(self.set,None))
+        data = self.get_data_set(self.nn.cfg.n_in,self.nn.cfg.n_out)
+
+        for row in self.set:
+            for idx in range(self.nn.cfg.n_in):
+                data.input[idx] = float(row[idx])
+#            temp = idx
+#            for idx in range(self.cfg.n_out):
+#                temp.contents.input = row[idx+temp]
+#           self.data.append(data)
+            break
+        
+
+
+#    start_time = time.time()
+#    line_count = 0
+#    for row in csv_reader:
+#        if line_count == 0:
+#            print(f'Column names are {", ".join(row)}')
+#            line_count += 1
+#        else:
+#            print(f"{row[:]}\n")
+#            line_count += 1
+#
+#
+#           end_time = time.time()
+#           print(end_time - start_time)
+
+
 p1 = prometheus()
 p1.fetch_configs(sys.argv[1:])
 p1.create_brain()
+p1.fetch_test_train_data()
 p1.destroy_brain()
