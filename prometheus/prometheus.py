@@ -74,6 +74,7 @@ class std_typedefs(object):
         self.layer = {"INPUT": 0, "HIDDEN": 1, "OUTPUT": 2}
         self.actv = {"LINEAR": 0, "RELU": 1, "SIGMOID": 2}
         self.norm = {"L1": 0, "L2": 1}
+        self.scaling = {"MIN_MAX": 0, "MEAN_STDV": 1, "STDV": 2}
 
 class t_sample(Structure):
     _fields_ = [("input",POINTER(c_float)), ("output",POINTER(c_float)), ("error", POINTER(c_float))]
@@ -99,6 +100,8 @@ class prometheus(object):
     def read_data_set(self, testcfg):
         csv_file = open(testcfg["test_file"]) 
         self.set = csv.reader(csv_file, delimiter=",")
+        self.test.ntrain = testcfg["ntrain"]
+        self.test.ntest = testcfg["ntest"]
 
     # Parse json cfg file and create nn cfg params
     def parse_configs(self):
@@ -143,20 +146,21 @@ class prometheus(object):
 
 
     def get_data_set(self,nin,nout):
-        data = (t_sample * 1)()
+        data = t_sample()
         data.input  = (c_float * nin)()
         data.output = (c_float * nout)()
         data.error  = (c_float * nout)()
         return data
 
-#   def teach_brain(self):
-#       print(type(self.test.data[0]))
-#       for idx in range(100):
-#          self.nn.train(self.nn.obj,self.test.data[idx])
-#
-#   def sentient_brain(self):
-#       for idx in range(50):
-#          self.nn.predict(self.nn.obj,self.test.data[idx])
+    def teach_brain(self):
+        for idx in range(self.test.ntrain):
+            self.nn.train(self.nn.obj,self.test.data[idx])
+#            print(self.test.data[idx].error[0],self.test.data[idx].error[1],self.test.data[idx].error[2])
+
+    def sentient_brain(self):
+        for idx in range(self.test.ntest):
+            self.nn.predict(self.nn.obj,self.test.data[idx])
+#            print(self.test.data[idx].output[0])
 
     def fetch_test_train_data(self):
         # skip first row with feature names
@@ -174,7 +178,7 @@ class prometheus(object):
                 self.test.mean[idx] = self.test.mean[idx] + data.input[idx]
                 self.test.maxm[idx] = max(self.test.maxm[idx],data.input[idx])
                 self.test.minm[idx] = min(self.test.minm[idx],data.input[idx])
-            temp = idx
+            temp = idx+1
             for idx in range(self.nn.cfg.n_out):
                 data.output[idx] = float(row[idx+temp])
             self.test.nset += 1
@@ -188,12 +192,18 @@ class prometheus(object):
             self.test.mean[idx] = self.test.mean[idx]/self.test.nset
         
         # calc std deviation
-        for elm in range(self.test.nset):
+        for elm in self.test.data:
             for idx in range(self.nn.cfg.n_in):
-                self.test.stdv[idx] = self.test.stdv[idx] + math.pow((self.test.data[elm].input[idx] - self.test.mean[idx]),2)
+                self.test.stdv[idx] = self.test.stdv[idx] + math.pow((elm.input[idx] - self.test.mean[idx]),2)
+
         for idx in range(self.nn.cfg.n_in):
             self.test.stdv[idx] = math.sqrt(self.test.stdv[idx]/self.test.nset)
 
+        # scale input data
+        for elm in self.test.data:
+            for idx in range(self.nn.cfg.n_in):
+                elm.input[idx] = (elm.input[idx] - self.test.mean[idx])/self.test.stdv[idx]
+#       print()
 #    start_time = time.time()
 #    line_count = 0
 #    for row in csv_reader:
@@ -213,6 +223,6 @@ p1 = prometheus()
 p1.fetch_configs(sys.argv[1:])
 p1.create_brain()
 p1.fetch_test_train_data()
-#p1.teach_brain()
-#p1.sentient_brain()
+p1.teach_brain()
+p1.sentient_brain()
 p1.destroy_brain()
