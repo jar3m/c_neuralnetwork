@@ -20,5 +20,5 @@ typedef struct {
 
 void* create_neural_network(t_nn_cfg config);
 void destroy_neural_network(void *nwk);
-void train_network(t_neural_network *nwk, t_sample train);
-void predict_network(t_neural_network *nwk, t_sample test);
+void train_network  (void *obj, t_sample train);
+void predict_network(void *obj, t_sample test);

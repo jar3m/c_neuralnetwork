@@ -73,16 +73,19 @@ void destroy_neural_network(void *obj)
 }
 
 
-void train_network(t_neural_network *nwk, t_sample train)
+void train_network(void *obj, t_sample train)
 {
-	feed_forward(nwk, train.in);
-	back_propogate(nwk, train.out);
-//	printf("Expected output %f %f\n", in[0], nwk->o_layer->output[0]);
+	t_neural_network *nwk = (t_neural_network*)obj;
+	printf("Expected output  %u \n",train.in[0]);
+//	feed_forward(nwk, train.in);
+//	back_propogate(nwk, train.out);
+//	printf("Expected output %f %f\n", train.in[0], nwk->o_layer->output[0]);
 }
 
 
-void predict_network(t_neural_network *nwk, t_sample test)
-{
+void predict_network(void *obj, t_sample test)
+{		
+	t_neural_network *nwk = (t_neural_network*)obj;
 	int i;
 	feed_forward(nwk, test.in);
 

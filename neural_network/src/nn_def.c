@@ -1,40 +1,8 @@
 #include "os.h"
 #include "nn_def.h" 
+#include "nn_utils.h"
 
-float relu (float x)
-{
-	float temp = (x >= 0)? x : 0;
-	return temp;
-}
 
-float d_relu (float x)
-{
-	float temp = (x > 0)? 1 : 0;
-	return temp;
-}
-float sigmoid (float x)
-{
-	float temp = 1 / (1 + exp(-x));
-	return temp;
-}
-
-float d_sigmoid (float x)
-{
-	float temp = sigmoid(x);
-
-	temp = temp * (1 - temp);
-	return temp;
-}
-
-float linear_actv(float x)
-{
-	return x;
-}
-
-float d_linear_actv(float x)
-{
-	return 1;
-}
 
 static f_actv_fn actv_fn[] = {linear_actv, relu, sigmoid};
 static f_actv_fn dactv_fn[] = {d_linear_actv, d_relu, d_sigmoid};
@@ -129,7 +97,7 @@ void destroy_layer(t_layer *l)
 		case eOUTPUT:
 			free(l->error);
 		case eHIDDEN:
-			for(i = 0; i < l->n_output; i++) { 
+			for (i = 0; i < l->n_output; i++) { 
 				free(l->neuron[i].weight);
 				l->neuron[i].weight = NULL;
 			}
