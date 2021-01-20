@@ -2,21 +2,22 @@
 	"neural_nw_lib_path": "/mnt/d/workspaces/linux/n_n/neural_network/bin/neural_network.so",
 	"neural_nw_config":{
 			"neural_nw_type":"CLASSIFY",
-			"num_input":4,
-			"num_output":3,
-			"learning_rate":0.1,
+			"num_input":23,
+			"num_output":1,
+			"learning_rate":0.5,
 			"num_hidden_layers":1,
 			"hl_prop":[
-					{"actv_fn":"SIGMOID", "size":5}
+					{"actv_fn":"SIGMOID", "size":3}
+					{"actv_fn":"SIGMOID", "size":1}
 			],
-			"oactv":"SIGMOID",
-			"normalization":"L1"
+			"normalization":"L1",
+			"oactv":"SIGMOID"
    },
 
 	"neural_network_test":{
-		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/iris/iris.csv",
-		   "ntrain":100,
-		   "ntest":50,
+		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/credit_risk/credit_risk.csv",
+		   "ntrain":450,
+		   "ntest":233,
 		   "shuffle":true,
 		   "scaled_input":true,
 		   "scaled_output":false,

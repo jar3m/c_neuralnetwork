@@ -1,0 +1,28 @@
+{
+	"neural_nw_lib_path": "/mnt/d/workspaces/linux/n_n/neural_network/bin/neural_network.so",
+	"neural_nw_config":{
+			"neural_nw_type":"REGRESS",
+			"num_input":5,
+			"num_output":1,
+			"learning_rate":1.01,
+			"num_hidden_layers":2,
+			"hl_prop":[
+					{"actv_fn":"SIGMOID", "size":3},
+					{"actv_fn":"SIGMOID", "size":1}
+			],
+			"normalization":"L1"
+   },
+
+	"neural_network_test":{
+		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/air_foil/air_foil.csv",
+		   "ntrain":1000,
+		   "ntest":503,
+		   "shuffle":true,
+		   "scaled_input":false,
+		   "scaled_output":true,
+		   "scalingtype":"MEAN_STDV",
+		   "training_method":"batch",
+		   "epochs":1
+	}
+
+}
