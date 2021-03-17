@@ -6,7 +6,7 @@ from ctypes import *
 import os
 import csv
 import time
-
+import pandas as pd
 
 # TODO Code to be deprecated
 """
@@ -84,28 +84,46 @@ class test(object):
         self.nin  = 0
         self.nout = 0
         self.nset = 0
-        self.data = []
-        self.maxm = []
-        self.minm = []
-        self.mean = []
-        self.stdv = []
-    
+
+    def scale_data(self, col, scale_type):
+        if scale_type == "MIN_MAX":
+            self.data[col] = (self.data[col] - self.data.min()[col]) / (self.data.max()[col] - self.data.min()[col])
+        elif scale_type == "MEAN_STDV":
+            self.data[col] = (self.data[col] - self.data.mean()[col])/ self.data.std()[col]
+        elif scale_type == "STDV":
+            self.data[col] = self.data[col] / self.data.std()[col]
 
 class prometheus(object):
     def __init__(self):
         print("Creating Prometheus")
         self.nn = neural_network()
         self.test = test()
+        self.elem = []
 
     def read_data_set(self, testcfg):
-        csv_file = open(testcfg["test_file"]) 
-        self.set = csv.reader(csv_file, delimiter=",")
+        self.test.data = pd.read_csv(testcfg["test_file"], sep=testcfg["delim"])
         self.test.ntrain = testcfg["ntrain"]
         self.test.ntest = testcfg["ntest"]
+        # Shuffle data
+        if testcfg["shuffle"] == 1:
+            print("Shuffling data ...")
+            self.test.data = self.test.data.sample(frac=1).reset_index(drop=True)
+       # Scale data set  
+        if testcfg["scaling_enabled"] == 1:
+            [self.test.scale_data(col, testcfg["scalingtype"]) for col in testcfg["scale_cols"]]
+        # Categorical variable present hot encode
+        hotencode = testcfg.get("hot_encode",0)
+        if hotencode != 0:
+            print ("Hot encoding :", hotencode)
+            for col in hotencode:
+                tmp =pd.get_dummies(self.test.data[col])
+                self.test.data = self.test.data.drop([col],axis = 1)
+                self.test.data = pd.concat([self.test.data,tmp],axis=1)
+        print("* Input parse done *",self.test.data)
 
     # Parse json cfg file and create nn cfg params
     def parse_configs(self):
-        with open(self.cfg_file) as conf:
+        with open(self.cfg_file, "r") as conf:
             config_dict = json.load(conf)
             self.nw_lib_path = config_dict["neural_nw_lib_path"]
             self.nn.update_config(config_dict["neural_nw_config"])
@@ -146,63 +164,24 @@ class prometheus(object):
 
 
     def get_data_set(self,nin,nout):
-        data = t_sample()
-        data.input  = (c_float * nin)()
-        data.output = (c_float * nout)()
-        data.error  = (c_float * nout)()
-        return data
+        elem = t_sample()
+        elem.input  = (c_float * nin)()
+        elem.output = (c_float * nout)()
+        elem.error  = (c_float * nout)()
+        return elem
 
     def teach_brain(self):
         for idx in range(self.test.ntrain):
-            self.nn.train(self.nn.obj,self.test.data[idx])
+            self.nn.train(self.nn.obj,self.test.elem[idx])
 #            print(self.test.data[idx].error[0],self.test.data[idx].error[1],self.test.data[idx].error[2])
 
     def sentient_brain(self):
         for idx in range(self.test.ntest):
-            self.nn.predict(self.nn.obj,self.test.data[idx])
+            self.nn.predict(self.nn.obj,self.test.elem[idx])
 #            print(self.test.data[idx].output[0])
 
     def fetch_test_train_data(self):
-        # skip first row with feature names
-        self.featurename =(next(self.set,None))
-        # initalialze max, min, mean and std dev 
-        self.test.maxm = [float("-inf") for i in range(self.nn.cfg.n_in)]
-        self.test.minm = [float("inf") for i in range(self.nn.cfg.n_in)]
-        self.test.mean = [0 for i in range(self.nn.cfg.n_in)]
-        self.test.stdv = [0 for i in range(self.nn.cfg.n_in)]
-        # read data from the csv file and
-        for row in self.set:
-            data = self.get_data_set(self.nn.cfg.n_in,self.nn.cfg.n_out)
-            for idx in range(self.nn.cfg.n_in):
-                data.input[idx] = float(row[idx])
-                self.test.mean[idx] = self.test.mean[idx] + data.input[idx]
-                self.test.maxm[idx] = max(self.test.maxm[idx],data.input[idx])
-                self.test.minm[idx] = min(self.test.minm[idx],data.input[idx])
-            temp = idx+1
-            for idx in range(self.nn.cfg.n_out):
-                data.output[idx] = float(row[idx+temp])
-            self.test.nset += 1
-            self.test.data.append(data)
-        
-        #shuffle the data
-        random.shuffle(self.test.data) 
-       
-        # calc mean
-        for idx in range(self.nn.cfg.n_in):
-            self.test.mean[idx] = self.test.mean[idx]/self.test.nset
-        
-        # calc std deviation
-        for elm in self.test.data:
-            for idx in range(self.nn.cfg.n_in):
-                self.test.stdv[idx] = self.test.stdv[idx] + math.pow((elm.input[idx] - self.test.mean[idx]),2)
-
-        for idx in range(self.nn.cfg.n_in):
-            self.test.stdv[idx] = math.sqrt(self.test.stdv[idx]/self.test.nset)
-
-        # scale input data
-        for elm in self.test.data:
-            for idx in range(self.nn.cfg.n_in):
-                elm.input[idx] = (elm.input[idx] - self.test.mean[idx])/self.test.stdv[idx]
+        pass
 #       print()
 #    start_time = time.time()
 #    line_count = 0
@@ -223,6 +202,6 @@ p1 = prometheus()
 p1.fetch_configs(sys.argv[1:])
 p1.create_brain()
 p1.fetch_test_train_data()
-p1.teach_brain()
-p1.sentient_brain()
+#p1.teach_brain()
+#p1.sentient_brain()
 p1.destroy_brain()
