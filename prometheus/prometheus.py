@@ -102,8 +102,12 @@ class prometheus(object):
 
     def read_data_set(self, testcfg):
         self.test.data = pd.read_csv(testcfg["test_file"], sep=testcfg["delim"])
-        self.test.ntrain = testcfg["ntrain"]
-        self.test.ntest = testcfg["ntest"]
+        self.test.ntrain = int((self.test.data.__len__() * testcfg["ntrain"]) / 100)
+        self.test.ntest = self.test.data.__len__() - self.test.ntrain
+        self.test.inputs = testcfg['inputs']
+        self.test.outputs = testcfg['outputs']
+        print("inputs/outputs: [{} {}]".format(self.test.inputs,self.test.outputs))
+        print("num [train/test]: [{}/{}]".format(self.test.ntrain,self.test.ntest))
         # Shuffle data
         if testcfg["shuffle"] == 1:
             print("Shuffling data ...")
@@ -119,7 +123,7 @@ class prometheus(object):
                 tmp =pd.get_dummies(self.test.data[col])
                 self.test.data = self.test.data.drop([col],axis = 1)
                 self.test.data = pd.concat([self.test.data,tmp],axis=1)
-        print("* Input parse done *",self.test.data)
+        print("* Input parse done *")
 
     # Parse json cfg file and create nn cfg params
     def parse_configs(self):
@@ -161,24 +165,32 @@ class prometheus(object):
     def destroy_brain(self):
         print("* prometheus brain dead *")
         self.nn.destroy(self.nn.obj)
-
-
-    def get_data_set(self,nin,nout):
-        elem = t_sample()
-        elem.input  = (c_float * nin)()
-        elem.output = (c_float * nout)()
-        elem.error  = (c_float * nout)()
-        return elem
+    #helper function to copy within list compreshension
+    def copy_elem(self, elm, idx, val):
+        elm[idx] = float(val) 
 
     def teach_brain(self):
+        elem = t_sample()
+        elem.input  = (c_float * self.nn.cfg.n_in)()
+        elem.output = (c_float * self.nn.cfg.n_out)()
+        elem.error  = (c_float * self.nn.cfg.n_out)()
         for idx in range(self.test.ntrain):
-            self.nn.train(self.nn.obj,self.test.elem[idx])
-#            print(self.test.data[idx].error[0],self.test.data[idx].error[1],self.test.data[idx].error[2])
+            [self.copy_elem(elem.input,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.inputs)]
+            [self.copy_elem(elem.output,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
+            self.nn.train(self.nn.obj,elem)
+#            print(elem.error[0],elem.error[1],elem.error[2])
+        print(idx)
 
     def sentient_brain(self):
-        for idx in range(self.test.ntest):
-            self.nn.predict(self.nn.obj,self.test.elem[idx])
-#            print(self.test.data[idx].output[0])
+        elem = t_sample()
+        elem.input  = (c_float * self.nn.cfg.n_in)()
+        elem.output = (c_float * self.nn.cfg.n_out)()
+        elem.error  = (c_float * self.nn.cfg.n_out)()
+        for idx in range(self.test.ntrain,self.test.ntrain+self.test.ntest):
+            [self.copy_elem(elem.input,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.inputs)]
+            [self.copy_elem(elem.output,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
+            self.nn.predict(self.nn.obj,elem)
+        #    [print(elem.output[cnt],self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
 
     def fetch_test_train_data(self):
         pass
@@ -202,6 +214,6 @@ p1 = prometheus()
 p1.fetch_configs(sys.argv[1:])
 p1.create_brain()
 p1.fetch_test_train_data()
-#p1.teach_brain()
-#p1.sentient_brain()
+p1.teach_brain()
+p1.sentient_brain()
 p1.destroy_brain()

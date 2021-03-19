@@ -16,9 +16,9 @@
 	"neural_network_test":{
 		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/iris/iris_flowers.csv",
 		   "delim":",",
-		   "output":["class"],
-		   "ntrain":100,
-		   "ntest":50,
+		   "inputs":["sepal_length","sepal_width","petal_length","petal_width"],
+		   "outputs":["iris_setosa","iris_versicolor","iris_virginica"],
+		   "ntrain":60,
 		   "shuffle":1,
 		   "scaling_enabled": 1,
 		   "scale_cols":["sepal_length","sepal_width","petal_length", "petal_width"],
