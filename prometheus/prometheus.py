@@ -113,7 +113,8 @@ class prometheus(object):
             print("Shuffling data ...")
             self.test.data = self.test.data.sample(frac=1).reset_index(drop=True)
        # Scale data set  
-        if testcfg["scaling_enabled"] == 1:
+        scale = testcfg.get("scaling_enabled",0)
+        if scale == 1:
             [self.test.scale_data(col, testcfg["scalingtype"]) for col in testcfg["scale_cols"]]
         # Categorical variable present hot encode
         hotencode = testcfg.get("hot_encode",0)

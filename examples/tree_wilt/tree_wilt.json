@@ -4,11 +4,10 @@
 			"neural_nw_type":"CLASSIFY",
 			"num_input":5,
 			"num_output":1,
-			"learning_rate":0.51,
-			"num_hidden_layers":2,
+			"learning_rate":0.31,
+			"num_hidden_layers":1,
 			"hl_prop":[
-					{"actv_fn":"SIGMOID", "size":5},
-					{"actv_fn":"SIGMOID", "size":1}
+					{"actv_fn":"SIGMOID", "size":5}
 			],
 			"oactv":"SIGMOID",
 			"normalization":"L1"
@@ -16,11 +15,13 @@
 
 	"neural_network_test":{
 		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/tree_wilt/tree_wilt.csv",
-		   "ntrain":200,
-		   "ntest":374,
-		   "shuffle":true,
-		   "scaled_input":true,
-		   "scaled_output":false,
+		   "delim":";",
+		   "ntrain":60,
+		   "inputs":["glcm","green","red","nir","pan_band"],
+		   "outputs":["wilt"],
+		   "shuffle":1,
+		   "scaling_enabled":1,
+		   "scale_cols":["glcm","green","red","nir","pan_band"],
 		   "scalingtype":"MEAN_STDV",
 		   "training_method":"batch",
 		   "epochs":1

@@ -15,11 +15,13 @@
 
 	"neural_network_test":{
 		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/bc_diag/bc_diag.csv",
-		   "ntrain":450,
-		   "ntest":233,
-		   "shuffle":true,
-		   "scaled_input":true,
-		   "scaled_output":false,
+		   "delim":",",
+		   "ntrain":60,
+		   "inputs":["clump_thickness","cell_size_uniformity","cell_shape_uniformity","marginal_adhesion","single_epithelial_cell_size","bare_nuclei","bland_chromatin","normal_nucleoli","mitoses"],
+		   "outputs":["diagnose"],
+		   "shuffle":1,
+		   "scaling_enabled":1,
+		   "scale_cols":["clump_thickness","cell_size_uniformity","cell_shape_uniformity","marginal_adhesion","single_epithelial_cell_size","bare_nuclei","bland_chromatin","normal_nucleoli","mitoses"],
 		   "scalingtype":"MEAN_STDV",
 		   "training_method":"batch",
 		   "epochs":1
