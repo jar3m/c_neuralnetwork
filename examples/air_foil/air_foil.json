@@ -14,12 +14,14 @@
    },
 
 	"neural_network_test":{
-		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/air_foil/air_foil.csv",
-		   "ntrain":1000,
-		   "ntest":503,
-		   "shuffle":true,
-		   "scaled_input":false,
-		   "scaled_output":true,
+		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/air_foil/airfoil_self_noise.csv",
+		   "delim":";",
+		   "ntrain":60,
+		   "inputs":["frequency","angle_of_attack","chord_length","free_stream_velocity","suction_side_displacement_thickness"],
+		   "outputs":["scaled_sound_pressure_level"],
+		   "shuffle":1,
+		   "scaling_enabled":1,
+		   "scale_cols":["frequency","angle_of_attack","chord_length","free_stream_velocity","suction_side_displacement_thickness","scaled_sound_pressure_level"],
 		   "scalingtype":"MEAN_STDV",
 		   "training_method":"batch",
 		   "epochs":1
