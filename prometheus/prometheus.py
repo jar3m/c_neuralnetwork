@@ -112,10 +112,25 @@ class prometheus(object):
         if testcfg["shuffle"] == 1:
             print("Shuffling data ...")
             self.test.data = self.test.data.sample(frac=1).reset_index(drop=True)
-       # Scale data set  
-        scale = testcfg.get("scaling_enabled",0)
-        if scale == 1:
-            [self.test.scale_data(col, testcfg["scalingtype"]) for col in testcfg["scale_cols"]]
+
+        # Scale feature set using Mean stdv
+        mean_scale = testcfg.get("mean_std_scale",0)
+        if mean_scale != 0:
+            print ("Mean Scaling :", mean_scale)
+            [self.test.scale_data(feature, "MEAN_STDV") for feature in mean_scale]
+
+        # Scale feature set using MIN MAX
+        min_max_scale = testcfg.get("min_max_scale",0)
+        if min_max_scale != 0:
+            print ("Min Max Scaling :", min_max_scale)
+            [self.test.scale_data(feature, "MIN_MAX") for feature in min_max_scale]
+
+        # Scale feature set using std deviation
+        std_scale = testcfg.get("stdv_scale",0)
+        if std_scale != 0:
+            print ("Std Dev Scaling :", std_scale)
+            [self.test.scale_data(feature, "STDV") for feature in std_scale]
+
         # Categorical variable present hot encode
         hotencode = testcfg.get("hot_encode",0)
         if hotencode != 0:
@@ -191,7 +206,7 @@ class prometheus(object):
             [self.copy_elem(elem.input,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.inputs)]
             [self.copy_elem(elem.output,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
             self.nn.predict(self.nn.obj,elem)
-        #    [print(elem.output[cnt],self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
+#            [print(elem.output[cnt],self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
 
     def fetch_test_train_data(self):
         pass

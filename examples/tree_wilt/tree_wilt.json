@@ -20,9 +20,7 @@
 		   "inputs":["glcm","green","red","nir","pan_band"],
 		   "outputs":["wilt"],
 		   "shuffle":1,
-		   "scaling_enabled":1,
-		   "scale_cols":["glcm","green","red","nir","pan_band"],
-		   "scalingtype":"MEAN_STDV",
+		   "mean_std_scale":["glcm","green","red","nir","pan_band"],
 		   "training_method":"batch",
 		   "epochs":1
 	}
