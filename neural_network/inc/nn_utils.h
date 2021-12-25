@@ -1,3 +1,9 @@
+/*! @file nn_utils.h
+    @author jar3m
+    @brief 
+    Contains function declarations of util functions used by neural network
+*/
+
 #pragma once
 
 float relu (float x);

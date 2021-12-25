@@ -1,3 +1,11 @@
+/*! @file os.h
+    @author jar3m
+    @brief 
+    Contains os specific headers
+*/
+
+#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

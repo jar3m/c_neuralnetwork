@@ -1,7 +1,19 @@
+/*! @file nn_interface.c
+    @author jar3m
+    @brief 
+    Contains definition of Neural network interface functions (called from python)
+*/
+
 #include "os.h"
 #include "nn_interface.h"
 
 
+/*! @brief  
+ *  Create and initialze a neural network for given configuration
+ *  called from python
+ *  @param config - Configurations for neural network to be created @see t_nn_cfg
+ *  @return       - Pointer to the neural network
+ * */
 void* create_neural_network(t_nn_cfg config)
 {
 	t_neural_network *temp = malloc(sizeof(t_neural_network));
@@ -51,15 +63,22 @@ void* create_neural_network(t_nn_cfg config)
 	return temp;
 }
 
+/*! @brief  
+ *  Destroy neural network 
+ *  called from python
+ *  @param obj	 - Pointer to the neural network
+ *  @return      - NA
+ * */
 void destroy_neural_network(void *obj)
 {
 	int i;
 	t_neural_network *nwk = (t_neural_network*)obj;
 	
-
+	// Destroy input and output
 	destroy_layer(nwk->i_layer);
 	destroy_layer(nwk->o_layer);
 
+	// Destroy hidden layers
 	for (i = 0; i < nwk->n_hlayer; i++) {
 		destroy_layer(nwk->h_layer[i]);
 	}
@@ -68,17 +87,31 @@ void destroy_neural_network(void *obj)
 
 	nwk->predict = nwk->train = NULL;
 
+	// free neural network structure
 	free(nwk);
 	nwk = NULL;
 }
 
 
+/*! @brief  
+ *  Train the neural network with the given instance
+ *  called from python
+ *  @param obj	 - Pointer to the neural network
+ *  @param train - Instance of input-output-error
+ *  @return      - NA
+ * */
 void train_network(void *obj, t_sample train)
 {
 	int i;
 	t_neural_network *nwk = (t_neural_network*)obj;
+	
+	// Feed forward with the given input
 	feed_forward(nwk, train.in);
+
+	// Back propogate with expected output 
 	back_propogate(nwk, train.out);
+
+	// Update the error
 	for (i = 0; i < nwk->o_layer->n_output; i++) {
 		train.error[i] = nwk->o_layer->error[i];
 	}
@@ -86,10 +119,19 @@ void train_network(void *obj, t_sample train)
 }
 
 
+/*! @brief  
+ *  Predic output of the neural network with the given instance
+ *  called from python
+ *  @param obj	 - Pointer to the neural network
+ *  @param train - Instance of input-output-error
+ *  @return      - NA
+ * */
 void predict_network(void *obj, t_sample test)
 {		
 	t_neural_network *nwk = (t_neural_network*)obj;
 	int i;
+
+	// Feed forward with the given input
 	feed_forward(nwk, test.in);
 
 	printf ("Expected output :");

@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+## @file prometheus.py
+#  @author jar3m
+#  
+
 import math, random
 import sys, getopt
 import json
@@ -8,23 +12,14 @@ import csv
 import time
 import pandas as pd
 
-# TODO Code to be deprecated
-"""
-class t_neuron(Structure):
-   _fields_ = [("bypass", c_bool), ("weight",c_float), ("actv_fn",CFUNCTYPE(c_void_p, c_void_p)), ("dactv_fn",CFUNCTYPE(c_void_p, c_void_p))]
-
-class t_layer(Structure):
-   _fields_ = [("lyrtype",c_int),("actvfntype",c_int),("n_out",c_int),("n_in",c_int),("ierror",c_float),("oerror",c_float),("input",c_float),("output",c_float),("error",c_float),("neuron",POINTER(t_neuron))]
-
-class t_neural_nw(Structure):
-   _fields_ = [("nntype",c_int),("nhdn",c_int),("ilyr",POINTER(t_layer)),("olyr",POINTER(t_layer)),("hlyr",POINTER(t_layer)),("eta", c_float),("train_fn",CFUNCTYPE(c_void_p, c_void_p)),("predict_fn",CFUNCTYPE(c_void_p, c_void_p))]
-"""
-
-
+## @class t_lyrifo @see t_lyrinfo
+# Python struct equivalent 
 class t_lyrinfo(Structure):
     _fields_ = [("size", c_int), ("lyrtype", c_int), ("actv", c_int)]
 
 
+## @class t_nn_cfg @see t_nn_cfg
+# Python struct equivalent 
 class t_nn_cfg(Structure):
     _fields_ = [
         ("type", c_int),
@@ -37,7 +32,14 @@ class t_nn_cfg(Structure):
     ]
 
     
+## @class t_sample @see t_sample
+# Python struct equivalent 
+class t_sample(Structure):
+    _fields_ = [("input",POINTER(c_float)), ("output",POINTER(c_float)), ("error", POINTER(c_float))]
 
+## @class neural_network
+# This class defines neural network routines for 
+# interacting with C neural network kernel
 class neural_network(object):
     def __init__(self):
         self.cfg = t_nn_cfg()
@@ -68,6 +70,8 @@ class neural_network(object):
             self.cfg.hinfo[index].lyrtype = self.stdtype.layer["HIDDEN"]
 
 
+## @class std_typedefs
+# This class defines a dict of all config param from user
 class std_typedefs(object):
     def __init__(self):
         self.nn = {"REGRESS": 0, "CLASSIFY": 1}
@@ -76,9 +80,9 @@ class std_typedefs(object):
         self.norm = {"L1": 0, "L2": 1}
         self.scaling = {"MIN_MAX": 0, "MEAN_STDV": 1, "STDV": 2}
 
-class t_sample(Structure):
-    _fields_ = [("input",POINTER(c_float)), ("output",POINTER(c_float)), ("error", POINTER(c_float))]
 
+## @class test
+# This is used for testing the network
 class test(object):
     def __init__(self):
         self.nin  = 0
@@ -93,6 +97,8 @@ class test(object):
         elif scale_type == "STDV":
             self.data[col] = self.data[col] / self.data.std()[col]
 
+## @class prometheus
+# Prometheus is the High level class that encapstulates all the in/out parsing and neural network interfacing
 class prometheus(object):
     def __init__(self):
         print("Creating Prometheus")

@@ -1,3 +1,8 @@
+/*! @file nn_def.c
+    @author jar3m
+    @brief 
+    Defines function that are used in creating the neural network structure
+*/
 #include "os.h"
 #include "nn_def.h" 
 #include "nn_utils.h"
@@ -7,18 +12,40 @@
 static f_actv_fn actv_fn[] = {linear_actv, relu, sigmoid};
 static f_actv_fn dactv_fn[] = {d_linear_actv, d_relu, d_sigmoid};
 
+/*! @brief  
+ *  Bypass a neuron in the hidden layer
+ *  @param nwk		- Pointer to neural network
+ *  @param layer_num	- hidden layer number
+ *  @param in_num	- input to be bypassed
+ *  @param neuron_num 	- neuron of which the input has to be bypassed
+ *  @return       - NA
+ * */
 void set_bypass_neuron(t_neural_network *nwk, int layer_num, int in_num,int neuron_num)
 {
 	nwk->h_layer[layer_num]->neuron[neuron_num].by_pass = true;
 	nwk->h_layer[layer_num]->neuron[neuron_num].weight[0] = in_num;
 }
 
+/*! @brief  
+ *  Bypass a neuron in the output layer
+ *  @param nwk		- Pointer to neural network
+ *  @param layer_num	- hidden layer number
+ *  @param in_num	- input to be bypassed
+ *  @param neuron_num 	- neuron of which the input has to be bypassed
+ *  @return       - NA
+ * */
 void set_bypass_neuron_op(t_neural_network *nwk, int layer_num, int in_num,int neuron_num)
 {
 	nwk->o_layer->neuron[neuron_num].by_pass = true;
 	nwk->o_layer->neuron[neuron_num].weight[0] = in_num;
 }
 
+
+/*! @brief  
+ *  Create a layer given the layer info
+ *  @param l	- layer info @see t_lyrinfo
+ *  @return	- Pointer to the created layer 
+ * */
 t_layer* create_layer(t_lyrinfo l)
 {
 	t_layer *layer = malloc(sizeof(t_layer));
@@ -55,6 +82,12 @@ t_layer* create_layer(t_lyrinfo l)
 	return layer;
 }
 
+/*! @brief  
+ *  Interconnect Two layers Ex, I-H H-H H-O
+ *  @param A	- Pointer of the layer to be connected
+ *  @param B	- Pointer of the layer to be connected
+ *  @return	- NA
+ * */
 void join_layers(t_layer *A, t_layer *B)
 {
 	int i,j;
@@ -85,6 +118,11 @@ void join_layers(t_layer *A, t_layer *B)
 }
 
 
+/*! @brief  
+ *  Destroy and free the given layer from memory
+ *  @param l	- Pointer of the layer to be destroyed
+ *  @return	- NA
+ * */
 void destroy_layer(t_layer *l) 
 {
 	int i;
@@ -119,6 +157,11 @@ void destroy_layer(t_layer *l)
 	l = NULL;
 }
 
+/*! @brief  
+ *  Print layer information such as in/out/error values and type
+ *  @param l	- Pointer of the layer 
+ *  @return	- NA
+ * */
 void print_layer(t_layer *l)
 {
 #if 0
