@@ -1,5 +1,9 @@
-# **Prometheus : A Neural Network Kernel written in C and uses python wrappers for interacting with the kernel**
+# **Prometheus : A Neural Network Kernel in C **
 
+The neural network kernel is written in C and iterfaced with python.
+The python module also takes care input-output and train-test data parsing and analysis
+
+[doxygen code documentation](https://github.com/jar3m/n_n/tree/gh-pages/docs/html/index.html)
 
 ## BUILD
 To build the neural network C library that will be interface with python
@@ -61,7 +65,6 @@ prometheus| contains the python wrapper module
 docs| contains Code documentation
 example|example configs tested bc_diag, tree_wilt and iris
 
-[doxygen code documentation](https://github.com/jar3m/n_n/tree/master/docs/html/index.html)
 
 ## Using `prometheus` module
 Below is a code snippet that shows how to use and call the prometheus module
