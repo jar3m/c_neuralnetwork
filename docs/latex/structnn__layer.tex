@@ -1,0 +1,193 @@
+\hypertarget{structnn__layer}{}\doxysection{nn\+\_\+layer Struct Reference}
+\label{structnn__layer}\index{nn\_layer@{nn\_layer}}
+
+
+{\ttfamily \#include $<$nn\+\_\+def.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3b}{e\+\_\+ltype}} \mbox{\hyperlink{structnn__layer_abbe866a13a44bc0bbf02289e088076af}{layer\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type of layer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}{e\+\_\+atvfn}} \mbox{\hyperlink{structnn__layer_af23cafbcb49fe18f3777ec231a28e707}{actv}}
+\begin{DoxyCompactList}\small\item\em Type of activation funtion for current layer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structnn__layer_af1aa2f3094d3d47f87addba62e80d07e}{n\+\_\+output}}
+\begin{DoxyCompactList}\small\item\em No of oututs to layer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structnn__layer_a4ee2594353b2756c7dd7122ee8ecfcc4}{n\+\_\+input}}
+\begin{DoxyCompactList}\small\item\em No of inputs to layer. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structnn__layer_a77380f35a15a2e85ff1a61bc28f2697d}{i\+\_\+back\+\_\+err}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s input errors used for backpropogation. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structnn__layer_ac54e06c8890383292a3f6075b9e8e748}{o\+\_\+back\+\_\+err}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s output errors used for backpropogation. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structnn__layer_aa92d3f73b33ca1a03e06415ee1db06eb}{input}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s inputs. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structnn__layer_aed212f452362fd47d3c6530a2433cbca}{output}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s outputs. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structnn__layer_acddab0593df5ee3a99a3011cae83305a}{error}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s errors (used only in Output layer) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__neuron}{t\+\_\+neuron}} $\ast$ \mbox{\hyperlink{structnn__layer_a50850e4c74e603b43c6829b694fe8ea7}{neuron}}
+\begin{DoxyCompactList}\small\item\em Pointer to layer\textquotesingle{}s neurons. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 73 of file nn\+\_\+def.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structnn__layer_af23cafbcb49fe18f3777ec231a28e707}\label{structnn__layer_af23cafbcb49fe18f3777ec231a28e707}} 
+\index{nn\_layer@{nn\_layer}!actv@{actv}}
+\index{actv@{actv}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{actv}{actv}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}{e\+\_\+atvfn}} actv}
+
+
+
+Type of activation funtion for current layer. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}{e\+\_\+atvfn}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 75 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_acddab0593df5ee3a99a3011cae83305a}\label{structnn__layer_acddab0593df5ee3a99a3011cae83305a}} 
+\index{nn\_layer@{nn\_layer}!error@{error}}
+\index{error@{error}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily float$\ast$ error}
+
+
+
+Pointer to layer\textquotesingle{}s errors (used only in Output layer) 
+
+
+
+Definition at line 83 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_a77380f35a15a2e85ff1a61bc28f2697d}\label{structnn__layer_a77380f35a15a2e85ff1a61bc28f2697d}} 
+\index{nn\_layer@{nn\_layer}!i\_back\_err@{i\_back\_err}}
+\index{i\_back\_err@{i\_back\_err}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{i\_back\_err}{i\_back\_err}}
+{\footnotesize\ttfamily float$\ast$ i\+\_\+back\+\_\+err}
+
+
+
+Pointer to layer\textquotesingle{}s input errors used for backpropogation. 
+
+
+
+Definition at line 79 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_aa92d3f73b33ca1a03e06415ee1db06eb}\label{structnn__layer_aa92d3f73b33ca1a03e06415ee1db06eb}} 
+\index{nn\_layer@{nn\_layer}!input@{input}}
+\index{input@{input}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily float$\ast$ input}
+
+
+
+Pointer to layer\textquotesingle{}s inputs. 
+
+
+
+Definition at line 81 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_abbe866a13a44bc0bbf02289e088076af}\label{structnn__layer_abbe866a13a44bc0bbf02289e088076af}} 
+\index{nn\_layer@{nn\_layer}!layer\_type@{layer\_type}}
+\index{layer\_type@{layer\_type}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{layer\_type}{layer\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3b}{e\+\_\+ltype}} layer\+\_\+type}
+
+
+
+Type of layer. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3b}{e\+\_\+ltype}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 74 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_a4ee2594353b2756c7dd7122ee8ecfcc4}\label{structnn__layer_a4ee2594353b2756c7dd7122ee8ecfcc4}} 
+\index{nn\_layer@{nn\_layer}!n\_input@{n\_input}}
+\index{n\_input@{n\_input}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{n\_input}{n\_input}}
+{\footnotesize\ttfamily int n\+\_\+input}
+
+
+
+No of inputs to layer. 
+
+
+
+Definition at line 77 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_af1aa2f3094d3d47f87addba62e80d07e}\label{structnn__layer_af1aa2f3094d3d47f87addba62e80d07e}} 
+\index{nn\_layer@{nn\_layer}!n\_output@{n\_output}}
+\index{n\_output@{n\_output}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{n\_output}{n\_output}}
+{\footnotesize\ttfamily int n\+\_\+output}
+
+
+
+No of oututs to layer. 
+
+
+
+Definition at line 76 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_a50850e4c74e603b43c6829b694fe8ea7}\label{structnn__layer_a50850e4c74e603b43c6829b694fe8ea7}} 
+\index{nn\_layer@{nn\_layer}!neuron@{neuron}}
+\index{neuron@{neuron}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{neuron}{neuron}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__neuron}{t\+\_\+neuron}}$\ast$ neuron}
+
+
+
+Pointer to layer\textquotesingle{}s neurons. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structt__neuron}{t\+\_\+neuron}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 85 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_ac54e06c8890383292a3f6075b9e8e748}\label{structnn__layer_ac54e06c8890383292a3f6075b9e8e748}} 
+\index{nn\_layer@{nn\_layer}!o\_back\_err@{o\_back\_err}}
+\index{o\_back\_err@{o\_back\_err}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{o\_back\_err}{o\_back\_err}}
+{\footnotesize\ttfamily float$\ast$ o\+\_\+back\+\_\+err}
+
+
+
+Pointer to layer\textquotesingle{}s output errors used for backpropogation. 
+
+
+
+Definition at line 80 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structnn__layer_aed212f452362fd47d3c6530a2433cbca}\label{structnn__layer_aed212f452362fd47d3c6530a2433cbca}} 
+\index{nn\_layer@{nn\_layer}!output@{output}}
+\index{output@{output}!nn\_layer@{nn\_layer}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily float$\ast$ output}
+
+
+
+Pointer to layer\textquotesingle{}s outputs. 
+
+
+
+Definition at line 82 of file nn\+\_\+def.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+neural\+\_\+network/inc/\mbox{\hyperlink{nn__def_8h}{nn\+\_\+def.\+h}}\end{DoxyCompactItemize}

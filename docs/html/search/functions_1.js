@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['create_5flayer_109',['create_layer',['../nn__def_8h.html#a86331bf0eddbcdaec1cc9f520cd01a3a',1,'create_layer(t_lyrinfo l):&#160;nn_def.c'],['../nn__def_8c.html#a86331bf0eddbcdaec1cc9f520cd01a3a',1,'create_layer(t_lyrinfo l):&#160;nn_def.c']]],
-  ['create_5fneural_5fnetwork_110',['create_neural_network',['../nn__interface_8h.html#ac1d0144e95419719de039f131cd848ac',1,'create_neural_network(t_nn_cfg config):&#160;nn_interface.c'],['../nn__interface_8c.html#ac1d0144e95419719de039f131cd848ac',1,'create_neural_network(t_nn_cfg config):&#160;nn_interface.c']]]
+  ['back_5fpropogate_154',['back_propogate',['../nn__def_8h.html#a628a9ae4fbba3cff9eba35f75fd81756',1,'back_propogate(t_neural_network *nwk, float *output):&#160;nn_algo.c'],['../nn__algo_8c.html#a628a9ae4fbba3cff9eba35f75fd81756',1,'back_propogate(t_neural_network *nwk, float *output):&#160;nn_algo.c']]],
+  ['back_5fpropogate_5flayer_155',['back_propogate_layer',['../nn__algo_8c.html#ac4faf6a34f03c828edb1984498024c19',1,'nn_algo.c']]]
 ];

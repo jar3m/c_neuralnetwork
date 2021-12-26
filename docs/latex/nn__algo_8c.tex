@@ -1,0 +1,146 @@
+\hypertarget{nn__algo_8c}{}\doxysection{neural\+\_\+network/src/nn\+\_\+algo.c File Reference}
+\label{nn__algo_8c}\index{neural\_network/src/nn\_algo.c@{neural\_network/src/nn\_algo.c}}
+
+
+Contains definitions of Neural network algos such as feedforward and backpropogation.  
+
+
+{\ttfamily \#include \char`\"{}nn\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nn__algo_8c_a28c2c03fbc11417ca81908a9d5a39a24}{feed\+\_\+forward\+\_\+layer}} (\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$l, \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} type)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Feed forward a layer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__algo_8c_ac4faf6a34f03c828edb1984498024c19}{back\+\_\+propogate\+\_\+layer}} (\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$l, float eta, \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} type)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Backpropogate the current layer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__algo_8c_a0b5ccb4743edb7d1fb54030c58901bf9}{feed\+\_\+forward}} (\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$nwk, float $\ast$input)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Run Backpropogation on neural network \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__algo_8c_a628a9ae4fbba3cff9eba35f75fd81756}{back\+\_\+propogate}} (\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$nwk, float $\ast$output)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Run Backpropogation on neural network \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains definitions of Neural network algos such as feedforward and backpropogation. 
+
+\begin{DoxyAuthor}{Author}
+jar3m 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nn__algo_8c_a628a9ae4fbba3cff9eba35f75fd81756}\label{nn__algo_8c_a628a9ae4fbba3cff9eba35f75fd81756}} 
+\index{nn\_algo.c@{nn\_algo.c}!back\_propogate@{back\_propogate}}
+\index{back\_propogate@{back\_propogate}!nn\_algo.c@{nn\_algo.c}}
+\doxysubsubsection{\texorpdfstring{back\_propogate()}{back\_propogate()}}
+{\footnotesize\ttfamily void back\+\_\+propogate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$}]{nwk,  }\item[{float $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Run Backpropogation on neural network 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Backpropagation}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Backpropagation}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em nwk} & -\/ Pointer to layer \\
+\hline
+{\em output} & -\/ Pointer to an output instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file nn\+\_\+algo.\+c.
+
+\mbox{\Hypertarget{nn__algo_8c_ac4faf6a34f03c828edb1984498024c19}\label{nn__algo_8c_ac4faf6a34f03c828edb1984498024c19}} 
+\index{nn\_algo.c@{nn\_algo.c}!back\_propogate\_layer@{back\_propogate\_layer}}
+\index{back\_propogate\_layer@{back\_propogate\_layer}!nn\_algo.c@{nn\_algo.c}}
+\doxysubsubsection{\texorpdfstring{back\_propogate\_layer()}{back\_propogate\_layer()}}
+{\footnotesize\ttfamily void back\+\_\+propogate\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$}]{l,  }\item[{float}]{eta,  }\item[{\mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}}}]{type }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Backpropogate the current layer 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Backpropagation\#:~:text=The-,overall\%20network,-is\%20a\%20combination}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Backpropagation\#\+:$\sim$\+:text=\+The-\/,overall\%20network,-\/is\%20a\%20combination}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ Pointer to layer \\
+\hline
+{\em type} & -\/ Type of layer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file nn\+\_\+algo.\+c.
+
+\mbox{\Hypertarget{nn__algo_8c_a0b5ccb4743edb7d1fb54030c58901bf9}\label{nn__algo_8c_a0b5ccb4743edb7d1fb54030c58901bf9}} 
+\index{nn\_algo.c@{nn\_algo.c}!feed\_forward@{feed\_forward}}
+\index{feed\_forward@{feed\_forward}!nn\_algo.c@{nn\_algo.c}}
+\doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
+{\footnotesize\ttfamily void feed\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$}]{nwk,  }\item[{float $\ast$}]{input }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Run Backpropogation on neural network 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Feedforward_neural_network}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Feedforward\+\_\+neural\+\_\+network}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em nwk} & -\/ Pointer to Neural network \\
+\hline
+{\em input} & -\/ Pointer to an input instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file nn\+\_\+algo.\+c.
+
+\mbox{\Hypertarget{nn__algo_8c_a28c2c03fbc11417ca81908a9d5a39a24}\label{nn__algo_8c_a28c2c03fbc11417ca81908a9d5a39a24}} 
+\index{nn\_algo.c@{nn\_algo.c}!feed\_forward\_layer@{feed\_forward\_layer}}
+\index{feed\_forward\_layer@{feed\_forward\_layer}!nn\_algo.c@{nn\_algo.c}}
+\doxysubsubsection{\texorpdfstring{feed\_forward\_layer()}{feed\_forward\_layer()}}
+{\footnotesize\ttfamily void feed\+\_\+forward\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}}}]{type }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Feed forward a layer 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Feedforward_neural_network\#:~:text=its\%20derivative\%20is-,easily\%20calculated,-\%3A}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Feedforward\+\_\+neural\+\_\+network\#\+:$\sim$\+:text=its\%20derivative\%20is-\/,easily\%20calculated,-\/\%3A}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ Pointer to layer \\
+\hline
+{\em type} & -\/ Type of layer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file nn\+\_\+algo.\+c.
+

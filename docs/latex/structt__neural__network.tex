@@ -1,0 +1,161 @@
+\hypertarget{structt__neural__network}{}\doxysection{t\+\_\+neural\+\_\+network Struct Reference}
+\label{structt__neural__network}\index{t\_neural\_network@{t\_neural\_network}}
+
+
+{\ttfamily \#include $<$nn\+\_\+def.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} \mbox{\hyperlink{structt__neural__network_a3a06e03e6eed5f6d64dc9aa2b77cc342}{type}}
+\begin{DoxyCompactList}\small\item\em Type of neural network. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structt__neural__network_a3ebea6347824fa351903c5572718c55a}{n\+\_\+hlayer}}
+\begin{DoxyCompactList}\small\item\em Num of hidden layers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$ \mbox{\hyperlink{structt__neural__network_a3dc9a595ebdb23514a0b1604bd3a0cb6}{i\+\_\+layer}}
+\begin{DoxyCompactList}\small\item\em Pointer to input layer of the neural network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$$\ast$ \mbox{\hyperlink{structt__neural__network_a85e0d1a26abe388f7beb89ca1b114e89}{h\+\_\+layer}}
+\begin{DoxyCompactList}\small\item\em Pointer to hidden layers of the neural network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$ \mbox{\hyperlink{structt__neural__network_a7f9f3db2a92e21a4c5500eca886c605f}{o\+\_\+layer}}
+\begin{DoxyCompactList}\small\item\em Pointer to output layer of the neural network. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structt__neural__network_a618685c3147cd3392c03da56912eaa0c}{eta}}
+\begin{DoxyCompactList}\small\item\em Learning rate of the neural network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}{f\+\_\+train\+\_\+fn}} \mbox{\hyperlink{structt__neural__network_ab5dad90b78fac230cebb5f705ba63b9c}{train}}
+\begin{DoxyCompactList}\small\item\em Pointer to train function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}{f\+\_\+predict\+\_\+fn}} \mbox{\hyperlink{structt__neural__network_a22c77bf091b0e1dfaa4376afbc393d99}{predict}}
+\begin{DoxyCompactList}\small\item\em Pointer to predict function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines neural network layer 
+
+Definition at line 92 of file nn\+\_\+def.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structt__neural__network_a618685c3147cd3392c03da56912eaa0c}\label{structt__neural__network_a618685c3147cd3392c03da56912eaa0c}} 
+\index{t\_neural\_network@{t\_neural\_network}!eta@{eta}}
+\index{eta@{eta}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily float eta}
+
+
+
+Learning rate of the neural network. 
+
+
+
+Definition at line 98 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a85e0d1a26abe388f7beb89ca1b114e89}\label{structt__neural__network_a85e0d1a26abe388f7beb89ca1b114e89}} 
+\index{t\_neural\_network@{t\_neural\_network}!h\_layer@{h\_layer}}
+\index{h\_layer@{h\_layer}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{h\_layer}{h\_layer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}$\ast$$\ast$ h\+\_\+layer}
+
+
+
+Pointer to hidden layers of the neural network. 
+
+
+
+Definition at line 96 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a3dc9a595ebdb23514a0b1604bd3a0cb6}\label{structt__neural__network_a3dc9a595ebdb23514a0b1604bd3a0cb6}} 
+\index{t\_neural\_network@{t\_neural\_network}!i\_layer@{i\_layer}}
+\index{i\_layer@{i\_layer}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{i\_layer}{i\_layer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}$\ast$ i\+\_\+layer}
+
+
+
+Pointer to input layer of the neural network. 
+
+
+
+Definition at line 95 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a3ebea6347824fa351903c5572718c55a}\label{structt__neural__network_a3ebea6347824fa351903c5572718c55a}} 
+\index{t\_neural\_network@{t\_neural\_network}!n\_hlayer@{n\_hlayer}}
+\index{n\_hlayer@{n\_hlayer}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{n\_hlayer}{n\_hlayer}}
+{\footnotesize\ttfamily int n\+\_\+hlayer}
+
+
+
+Num of hidden layers. 
+
+
+
+Definition at line 94 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a7f9f3db2a92e21a4c5500eca886c605f}\label{structt__neural__network_a7f9f3db2a92e21a4c5500eca886c605f}} 
+\index{t\_neural\_network@{t\_neural\_network}!o\_layer@{o\_layer}}
+\index{o\_layer@{o\_layer}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{o\_layer}{o\_layer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}$\ast$ o\+\_\+layer}
+
+
+
+Pointer to output layer of the neural network. 
+
+
+
+Definition at line 97 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a22c77bf091b0e1dfaa4376afbc393d99}\label{structt__neural__network_a22c77bf091b0e1dfaa4376afbc393d99}} 
+\index{t\_neural\_network@{t\_neural\_network}!predict@{predict}}
+\index{predict@{predict}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{predict}{predict}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}{f\+\_\+predict\+\_\+fn}} predict}
+
+
+
+Pointer to predict function. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}{f\+\_\+predict\+\_\+fn}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 101 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_ab5dad90b78fac230cebb5f705ba63b9c}\label{structt__neural__network_ab5dad90b78fac230cebb5f705ba63b9c}} 
+\index{t\_neural\_network@{t\_neural\_network}!train@{train}}
+\index{train@{train}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{train}{train}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}{f\+\_\+train\+\_\+fn}} train}
+
+
+
+Pointer to train function. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}{f\+\_\+train\+\_\+fn}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 100 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{structt__neural__network_a3a06e03e6eed5f6d64dc9aa2b77cc342}\label{structt__neural__network_a3a06e03e6eed5f6d64dc9aa2b77cc342}} 
+\index{t\_neural\_network@{t\_neural\_network}!type@{type}}
+\index{type@{type}!t\_neural\_network@{t\_neural\_network}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} type}
+
+
+
+Type of neural network. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 93 of file nn\+\_\+def.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+neural\+\_\+network/inc/\mbox{\hyperlink{nn__def_8h}{nn\+\_\+def.\+h}}\end{DoxyCompactItemize}

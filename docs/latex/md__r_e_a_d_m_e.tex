@@ -1,0 +1,110 @@
+\href{https://github.com/jar3m/n_n/docs/html/index.html}{\texttt{ doxygen code documentation}}\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{BUILD}\label{md__r_e_a_d_m_e_autotoc_md1}
+To build the neural network C library that will be interface with python
+
+make clean; make\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{RUN}\label{md__r_e_a_d_m_e_autotoc_md2}
+The python driver app is required to pass a json file containg the configurations to prometheus module
+
+./prometheus/test.py -\/i examples/iris/iris.\+json\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Cfg file}\label{md__r_e_a_d_m_e_autotoc_md3}
+The input config file consists of two major configurations
+\begin{DoxyItemize}
+\item {\ttfamily \char`\"{}neural\+\_\+nw\+\_\+lib\+\_\+path\char`\"{}}\+: Path to the C shared library containing the neural network kernel
+\item {\ttfamily \char`\"{}neural\+\_\+nw\+\_\+config\char`\"{}}\+: Contains neural network configuration info \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \char`\"{}\+Config\char`\"{}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \char`\"{}\+Config\char`\"{}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+{\ttfamily \char`\"{}neural\+\_\+nw\+\_\+type\char`\"{}}   &can either be {\ttfamily \char`\"{}\+REGRESS\char`\"{}} or {\ttfamily \char`\"{}\+CLASSIFY\char`\"{}}    \\\cline{1-2}
+{\ttfamily \char`\"{}num\+\_\+input\char`\"{}}   &number of input    \\\cline{1-2}
+{\ttfamily \char`\"{}num\+\_\+output\char`\"{}}   &number of output    \\\cline{1-2}
+{\ttfamily \char`\"{}learning\+\_\+rate\char`\"{}}   &learning rate of the neural newtwork    \\\cline{1-2}
+{\ttfamily \char`\"{}oactv\char`\"{}}   &output activation function required only if {\ttfamily \char`\"{}neural\+\_\+nw\+\_\+type\char`\"{}} = {\ttfamily \char`\"{}\+CLASSIFY\char`\"{}}    \\\cline{1-2}
+{\ttfamily \char`\"{}normalization\char`\"{}}   &{\ttfamily \char`\"{}\+L1\char`\"{}} or {\ttfamily \char`\"{}\+L2\char`\"{}} {\ttfamily (Note curently L1 is supported L2 needs to be implemeneted)}    \\\cline{1-2}
+{\ttfamily \char`\"{}num\+\_\+hidden\+\_\+layers\char`\"{}}   &number of hidden layers and for each hidden layer define proporties    \\\cline{1-2}
+{\ttfamily \char`\"{}hl\+\_\+prop\char`\"{}}   &list of all hidden layers properties   \\\cline{1-2}
+\end{longtabu}
+
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \char`\"{}hl\+\_\+prop\char`\"{}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ list of all hidden layers properties to be define for each hiden layer    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ \char`\"{}hl\+\_\+prop\char`\"{}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ list of all hidden layers properties to be define for each hiden layer    }\\\cline{1-2}
+\endhead
+{\ttfamily \char`\"{}actv\+\_\+fn\char`\"{}}   &{\ttfamily \char`\"{}\+LINEAR\char`\"{}}, {\ttfamily \char`\"{}\+RELU\char`\"{}}, {\ttfamily \char`\"{}\+SIGMOID\char`\"{}}    \\\cline{1-2}
+{\ttfamily \char`\"{}size\char`\"{}}   &size of the hidden layer ,i.\+e, No of neurons   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \char`\"{}neural\+\_\+network\+\_\+test\char`\"{}}\+: Contains neural network input-\/output and train-\/test info \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Config   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Config   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+{\ttfamily \char`\"{}test\+\_\+file\char`\"{}}   &Path to the file containg input-\/outputs used for training and testing usually a .csv or .xlsx {\ttfamily (Note\+: current support is for .csv)}    \\\cline{1-2}
+{\ttfamily \char`\"{}delim\char`\"{}}   &Delimiter in case of csv file    \\\cline{1-2}
+{\ttfamily \char`\"{}inputs\char`\"{}}   &List of label names that has to be considered as inputs {\ttfamily (Note\+: size of lablel list should be same as}\char`\"{}num\+\_\+input\char`\"{}{\ttfamily ) \textbackslash{}ilinebr $<$/td$>$ $<$/tr$>$ $<$tr class=\char`\"{}markdown\+Table\+Row\+Even\char`\"{}$>$ $<$td class=\char`\"{}markdown\+Table\+Body\+None\char`\"{}$>$}\char`\"{}outputs\char`\"{}{\ttfamily \textbackslash{}ilinebr $<$/td$>$ $<$td class=\char`\"{}markdown\+Table\+Body\+None\char`\"{}$>$ List of label names that has to be considered as outputs}(Note\+: size of lablel list should be same as {\ttfamily \char`\"{}num\+\_\+output\char`\"{}})    \\\cline{1-2}
+{\ttfamily \char`\"{}ntrain\char`\"{}}   &Percentage of the data to be used for training and the remaining is used for testing    \\\cline{1-2}
+{\ttfamily \char`\"{}shuffle\char`\"{}}   &Shuffle the data set if {\ttfamily 1} do not shuffle if {\ttfamily 0}    \\\cline{1-2}
+{\ttfamily \char`\"{}epochs\char`\"{}}   &no of training epochs {\ttfamily (Note\+: Currently only 1 is supported)}    \\\cline{1-2}
+{\ttfamily \char`\"{}training\+\_\+method\char`\"{}}   &Training method {\ttfamily \char`\"{}\+Batch\char`\"{}} is only supported currently    \\\cline{1-2}
+{\ttfamily \char`\"{}mean\+\_\+std\+\_\+scale\char`\"{}}   &optional field mean scale the given labels    \\\cline{1-2}
+{\ttfamily \char`\"{}min\+\_\+max\+\_\+scale\char`\"{}}   &optional field min max scale the given labels    \\\cline{1-2}
+{\ttfamily \char`\"{}stdv\+\_\+scale\char`\"{}}   &optional field standard deviation based scale the given labels    \\\cline{1-2}
+{\ttfamily \char`\"{}hot\+\_\+encode\char`\"{}}   &optional field if Categorical variable present hot encode the outputs. more info refer {\ttfamily examples/iris/iris.\+json}   \\\cline{1-2}
+\end{longtabu}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Folders}\label{md__r_e_a_d_m_e_autotoc_md4}
+Folder $\vert$ Description common$\vert$ os includes neural\+\_\+network$\vert$ Contains sources that define the neural network in C prometheus$\vert$ contains the python wrapper module docs$\vert$ contains Code documentation\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Using $<$tt$>$prometheus$<$/tt$>$ module}\label{md__r_e_a_d_m_e_autotoc_md5}
+Below is a code snippet that shows how to use and call the prometheus module
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import sys, getopt}
+\DoxyCodeLine{from prometheus import prometheus}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{p1 = prometheus()}
+\DoxyCodeLine{p1.fetch\_configs(sys.argv[1:])}
+\DoxyCodeLine{p1.create\_brain()}
+\DoxyCodeLine{p1.teach\_brain()}
+\DoxyCodeLine{p1.sentient\_brain()}
+\DoxyCodeLine{p1.destroy\_brain()}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Future Scope (\+Highly optimistic)}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Graphs and plots to analyse input/output
+\item GUI based cfg selection
+\item Adding Convolutional layer
+\item Neural network(Scaling,bounding/probalistic,)
+\item Training-\/strategy(loss Index and Optimization)
+\item Data-\/analysis(data validity and analysis)
+\item Model-\/selection(regress to get optimized model)
+\item Testing-\/analysis(How good did we do?)
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{Current Scope}\label{md__r_e_a_d_m_e_autotoc_md7}
+We have classification working but regression has some problems and seem to be beyond my scope of understanding any help will be appreciated\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Contributors}\label{md__r_e_a_d_m_e_autotoc_md8}
+\href{https://github.com/jar3m}{\texttt{ jar3m}}
+
+\href{https://github.com/kamalakannan-s}{\texttt{ kamalakannan-\/s}}
+
+\href{https://github.com/BlindCentaur}{\texttt{ Blind\+Centaur}}
+
+If interested in developing further join our \href{https://discord.gg/q42YmYahpe}{\texttt{ discord}} 

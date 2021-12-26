@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['o_5fback_5ferr_59',['o_back_err',['../structnn__layer.html#ac54e06c8890383292a3f6075b9e8e748',1,'nn_layer']]],
-  ['o_5flayer_60',['o_layer',['../structt__neural__network.html#a7f9f3db2a92e21a4c5500eca886c605f',1,'t_neural_network']]],
-  ['oactv_61',['oactv',['../structt__nn__cfg.html#ac4ba2f36906feeeb160964a88db5119c',1,'t_nn_cfg']]],
-  ['os_2eh_62',['os.h',['../os_8h.html',1,'']]],
-  ['out_63',['out',['../structt__sample.html#ab161b50fe0535a1a02d39320cddadedc',1,'t_sample']]],
-  ['output_64',['output',['../structnn__layer.html#aed212f452362fd47d3c6530a2433cbca',1,'nn_layer']]]
+  ['layer_56',['layer',['../classprometheus_1_1prometheus_1_1std__typedefs.html#a95f2e9e3b2b2d837f962bcfb58a2011e',1,'prometheus::prometheus::std_typedefs']]],
+  ['layer_5ftype_57',['layer_type',['../structt__lyrinfo.html#abbe866a13a44bc0bbf02289e088076af',1,'t_lyrinfo::layer_type()'],['../structnn__layer.html#abbe866a13a44bc0bbf02289e088076af',1,'nn_layer::layer_type()']]],
+  ['lib_58',['lib',['../classprometheus_1_1prometheus_1_1neural__network.html#acb708273ace24678f6a7f5c529531a65',1,'prometheus::prometheus::neural_network']]],
+  ['linear_5factv_59',['linear_actv',['../nn__utils_8h.html#a53d952b5a51e1f1430d9332f67c31621',1,'linear_actv(float x):&#160;nn_utils.c'],['../nn__utils_8c.html#a53d952b5a51e1f1430d9332f67c31621',1,'linear_actv(float x):&#160;nn_utils.c']]]
 ];

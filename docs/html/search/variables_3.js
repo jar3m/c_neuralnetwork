@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['error_131',['error',['../structnn__layer.html#acddab0593df5ee3a99a3011cae83305a',1,'nn_layer::error()'],['../structt__sample.html#acddab0593df5ee3a99a3011cae83305a',1,'t_sample::error()']]],
-  ['eta_132',['eta',['../structt__neural__network.html#a618685c3147cd3392c03da56912eaa0c',1,'t_neural_network::eta()'],['../structt__nn__cfg.html#a618685c3147cd3392c03da56912eaa0c',1,'t_nn_cfg::eta()']]]
+  ['deactivate_192',['deactivate',['../structt__neuron.html#a24739caf2f3a580ccb6276be4968adfd',1,'t_neuron']]],
+  ['destroy_193',['destroy',['../classprometheus_1_1prometheus_1_1neural__network.html#a3565d0320a8dbc416be76a07782c887f',1,'prometheus::prometheus::neural_network']]]
 ];

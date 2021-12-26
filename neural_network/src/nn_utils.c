@@ -1,7 +1,7 @@
-/*! @file nn_algo.c
+/*! @file nn_utils.c
     @author jar3m
     @brief 
-    Contains definitions of Neural network algos such as feedforward and backpropogation
+    Contains definitions of utility functions used by Neural network algos 
 */
 #include "os.h"
 #include "nn_utils.h"

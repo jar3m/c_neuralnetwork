@@ -24,13 +24,32 @@
 */
 var NAVTREE =
 [
-  [ "NN", "index.html", [
+  [ "Prometheus", "index.html", [
+    [ "<strong>Prometheus : A Neural Network Kernel written in C and uses python wrappers for interacting with the kernel</strong>", "md__r_e_a_d_m_e.html", [
+      [ "BUILD", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "RUN", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Cfg file", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Folders", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Using <tt>prometheus</tt> module", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+      [ "Future Scope (Highly optimistic)", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
+      [ "Current Scope", "md__r_e_a_d_m_e.html#autotoc_md7", [
+        [ "Contributors", "md__r_e_a_d_m_e.html#autotoc_md8", null ]
+      ] ]
+    ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
@@ -41,7 +60,8 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ]
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -49,7 +69,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"____init_____8py.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

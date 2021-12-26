@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ## @file prometheus.py
-#  @author jar3m
-#  
+## Prometheus = Just Another Neural Network
+## @author jar3m
 
 import math, random
 import sys, getopt
@@ -12,15 +12,15 @@ import csv
 import time
 import pandas as pd
 
-## @class t_lyrifo @see t_lyrinfo
-# Python struct equivalent 
-class t_lyrinfo(Structure):
+## @class  c_lyrinfo 
+# Python struct equivalent @see t_lyrinfo
+class c_lyrinfo(Structure):
     _fields_ = [("size", c_int), ("lyrtype", c_int), ("actv", c_int)]
 
 
-## @class t_nn_cfg @see t_nn_cfg
-# Python struct equivalent 
-class t_nn_cfg(Structure):
+## @class c_nn_cfg 
+# Python struct equivalent @see t_nn_cfg
+class c_nn_cfg(Structure):
     _fields_ = [
         ("type", c_int),
         ("eta", c_float),
@@ -28,23 +28,27 @@ class t_nn_cfg(Structure):
         ("n_out", c_int),
         ("oactv", c_int),
         ("n_hdn", c_int),
-        ("hinfo", POINTER(t_lyrinfo)),
+        ("hinfo", POINTER(c_lyrinfo)),
     ]
 
     
-## @class t_sample @see t_sample
-# Python struct equivalent 
-class t_sample(Structure):
+## @class c_sample 
+# Python struct equivalent @see t_sample
+class c_sample(Structure):
     _fields_ = [("input",POINTER(c_float)), ("output",POINTER(c_float)), ("error", POINTER(c_float))]
 
 ## @class neural_network
 # This class defines neural network routines for 
-# interacting with C neural network kernel
+# interfacing  with C neural network kernel
 class neural_network(object):
+    ## @brief init constructor 
     def __init__(self):
-        self.cfg = t_nn_cfg()
+	## cfg @see c_nn_cfg
+        self.cfg = c_nn_cfg()
+	## @see std_typedefs
         self.stdtype = std_typedefs()
 
+    ## @brief intialize the python equivalent of C nn interface calls
     def init_lib(self, path):
         self.lib = CDLL(path)
         self.create = self.lib.create_neural_network
@@ -56,13 +60,14 @@ class neural_network(object):
         self.predict.restype = c_void_p
         self.destroy.restype = c_void_p
 
+    ## @brief Update the parsed nn configurations
     def update_config(self, nn_cfg_dict):
         self.cfg.type = self.stdtype.nn[nn_cfg_dict["neural_nw_type"]]
         self.cfg.eta = nn_cfg_dict["learning_rate"]
         self.cfg.n_in = nn_cfg_dict["num_input"]
         self.cfg.n_out = nn_cfg_dict["num_output"]
         self.cfg.n_hdn = nn_cfg_dict["num_hidden_layers"]
-        self.cfg.hinfo = (t_lyrinfo * self.cfg.n_hdn)()
+        self.cfg.hinfo = (c_lyrinfo * self.cfg.n_hdn)()
         hl_props = list(nn_cfg_dict["hl_prop"])
         for index in range(self.cfg.n_hdn):
             self.cfg.hinfo[index].actv = self.stdtype.actv[hl_props[index]["actv_fn"]]
@@ -73,22 +78,30 @@ class neural_network(object):
 ## @class std_typedefs
 # This class defines a dict of all config param from user
 class std_typedefs(object):
+    ## @brief init constructor 
     def __init__(self):
+	## Type of neural networks suported
         self.nn = {"REGRESS": 0, "CLASSIFY": 1}
+	## Type of Neural network layer
         self.layer = {"INPUT": 0, "HIDDEN": 1, "OUTPUT": 2}
+	## Type of Activation function to be used
         self.actv = {"LINEAR": 0, "RELU": 1, "SIGMOID": 2}
+	## Type of normalization to be applied
         self.norm = {"L1": 0, "L2": 1}
+	## Type of scaling to be used 
         self.scaling = {"MIN_MAX": 0, "MEAN_STDV": 1, "STDV": 2}
 
 
 ## @class test
 # This is used for testing the network
 class test(object):
+    ## @brief init constructor 
     def __init__(self):
         self.nin  = 0
         self.nout = 0
         self.nset = 0
 
+    ## @brief init constructor 
     def scale_data(self, col, scale_type):
         if scale_type == "MIN_MAX":
             self.data[col] = (self.data[col] - self.data.min()[col]) / (self.data.max()[col] - self.data.min()[col])
@@ -100,12 +113,14 @@ class test(object):
 ## @class prometheus
 # Prometheus is the High level class that encapstulates all the in/out parsing and neural network interfacing
 class prometheus(object):
+    ## @brief init constructor 
     def __init__(self):
         print("Creating Prometheus")
         self.nn = neural_network()
         self.test = test()
         self.elem = []
 
+    ## @brief Read the input csv file containing test/train data
     def read_data_set(self, testcfg):
         self.test.data = pd.read_csv(testcfg["test_file"], sep=testcfg["delim"])
         self.test.ntrain = int((self.test.data.__len__() * testcfg["ntrain"]) / 100)
@@ -147,7 +162,7 @@ class prometheus(object):
                 self.test.data = pd.concat([self.test.data,tmp],axis=1)
         print("* Input parse done *")
 
-    # Parse json cfg file and create nn cfg params
+    ## @brief Parse json cfg file and create nn cfg params
     def parse_configs(self):
         with open(self.cfg_file, "r") as conf:
             config_dict = json.load(conf)
@@ -156,7 +171,7 @@ class prometheus(object):
             testcfg = config_dict["neural_network_test"]
             self.read_data_set(testcfg)
        
-    # fetch cmd line params
+    ## @brief fetch cmd line params
     def fetch_configs(self, argv):
         print("Fething configs for prometheus")
         try:
@@ -177,25 +192,32 @@ class prometheus(object):
         #print ('Output file is ', self.out_file)
         self.parse_configs()
 
-    # Create  Neural Network Structure and Bind NN C lib
+    ## @brief Create  Neural Network Structure and Bind NN C lib
     def create_brain(self):
         print("* prometheus brain alive *")
+	# Initalize the C based neural network lib
         self.nn.init_lib(self.nw_lib_path)
+	# Create the  neural network
         self.nn.obj = self.nn.create(self.nn.cfg)
 
-    # Destroy Neural Network
+    ## @brief Destroy Neural Network
     def destroy_brain(self):
         print("* prometheus brain dead *")
+	# Free up memory of the created neural network
         self.nn.destroy(self.nn.obj)
-    #helper function to copy within list compreshension
+
+    ## @brief Helper function to copy within list compreshension
     def copy_elem(self, elm, idx, val):
         elm[idx] = float(val) 
 
+    ## @brief neural network training
     def teach_brain(self):
-        elem = t_sample()
+	# Create a sample set for training
+        elem = c_sample()
         elem.input  = (c_float * self.nn.cfg.n_in)()
         elem.output = (c_float * self.nn.cfg.n_out)()
         elem.error  = (c_float * self.nn.cfg.n_out)()
+	# Init the sample set and train 
         for idx in range(self.test.ntrain):
             [self.copy_elem(elem.input,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.inputs)]
             [self.copy_elem(elem.output,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
@@ -203,17 +225,21 @@ class prometheus(object):
 #            print(elem.error[0],elem.error[1],elem.error[2])
         print(idx)
 
+    ## @brief neural network prediction
     def sentient_brain(self):
-        elem = t_sample()
+	# Create a sample set for prediction
+        elem = c_sample()
         elem.input  = (c_float * self.nn.cfg.n_in)()
         elem.output = (c_float * self.nn.cfg.n_out)()
         elem.error  = (c_float * self.nn.cfg.n_out)()
+	# Init the sample set and predict
         for idx in range(self.test.ntrain,self.test.ntrain+self.test.ntest):
             [self.copy_elem(elem.input,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.inputs)]
             [self.copy_elem(elem.output,cnt,self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
             self.nn.predict(self.nn.obj,elem)
 #            [print(elem.output[cnt],self.test.data[col][idx]) for cnt, col in enumerate(self.test.outputs)]
 
+    ## @brief copy the test train function
     def fetch_test_train_data(self):
         pass
 #       print()
@@ -232,10 +258,3 @@ class prometheus(object):
 #           print(end_time - start_time)
 
 
-p1 = prometheus()
-p1.fetch_configs(sys.argv[1:])
-p1.create_brain()
-p1.fetch_test_train_data()
-p1.teach_brain()
-p1.sentient_brain()
-p1.destroy_brain()

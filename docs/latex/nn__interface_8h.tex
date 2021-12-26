@@ -1,0 +1,140 @@
+\hypertarget{nn__interface_8h}{}\doxysection{neural\+\_\+network/inc/nn\+\_\+interface.h File Reference}
+\label{nn__interface_8h}\index{neural\_network/inc/nn\_interface.h@{neural\_network/inc/nn\_interface.h}}
+
+
+Defines strutures exposed to the user for interfacing with neural network (called from python)  
+
+
+{\ttfamily \#include \char`\"{}nn\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__sample}{t\+\_\+sample}}
+\item 
+struct \mbox{\hyperlink{structt__nn__cfg}{t\+\_\+nn\+\_\+cfg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{nn__interface_8h_ac1d0144e95419719de039f131cd848ac}{create\+\_\+neural\+\_\+network}} (\mbox{\hyperlink{structt__nn__cfg}{t\+\_\+nn\+\_\+cfg}} config)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Create and initialze a neural network for given configuration called from python \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__interface_8h_adaba74cabfa27f1750e96cc88a251636}{destroy\+\_\+neural\+\_\+network}} (void $\ast$nwk)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Destroy neural network called from python \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__interface_8h_a9ca30a2ca4a3768e6f958e77c2988471}{train\+\_\+network}} (void $\ast$obj, \mbox{\hyperlink{structt__sample}{t\+\_\+sample}} train)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Train the neural network with the given instance called from python \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__interface_8h_ad5edabfa29926790306c2915e84e0545}{predict\+\_\+network}} (void $\ast$obj, \mbox{\hyperlink{structt__sample}{t\+\_\+sample}} test)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Predic output of the neural network with the given instance called from python \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines strutures exposed to the user for interfacing with neural network (called from python) 
+
+\begin{DoxyAuthor}{Author}
+jar3m 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nn__interface_8h_ac1d0144e95419719de039f131cd848ac}\label{nn__interface_8h_ac1d0144e95419719de039f131cd848ac}} 
+\index{nn\_interface.h@{nn\_interface.h}!create\_neural\_network@{create\_neural\_network}}
+\index{create\_neural\_network@{create\_neural\_network}!nn\_interface.h@{nn\_interface.h}}
+\doxysubsubsection{\texorpdfstring{create\_neural\_network()}{create\_neural\_network()}}
+{\footnotesize\ttfamily void$\ast$ create\+\_\+neural\+\_\+network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__nn__cfg}{t\+\_\+nn\+\_\+cfg}}}]{config }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Create and initialze a neural network for given configuration called from python 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & -\/ Configurations for neural network to be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structt__nn__cfg}{t\+\_\+nn\+\_\+cfg}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+-\/ Pointer to the neural network 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file nn\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{nn__interface_8h_adaba74cabfa27f1750e96cc88a251636}\label{nn__interface_8h_adaba74cabfa27f1750e96cc88a251636}} 
+\index{nn\_interface.h@{nn\_interface.h}!destroy\_neural\_network@{destroy\_neural\_network}}
+\index{destroy\_neural\_network@{destroy\_neural\_network}!nn\_interface.h@{nn\_interface.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_neural\_network()}{destroy\_neural\_network()}}
+{\footnotesize\ttfamily void destroy\+\_\+neural\+\_\+network (\begin{DoxyParamCaption}\item[{void $\ast$}]{obj }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Destroy neural network called from python 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & -\/ Pointer to the neural network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file nn\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{nn__interface_8h_ad5edabfa29926790306c2915e84e0545}\label{nn__interface_8h_ad5edabfa29926790306c2915e84e0545}} 
+\index{nn\_interface.h@{nn\_interface.h}!predict\_network@{predict\_network}}
+\index{predict\_network@{predict\_network}!nn\_interface.h@{nn\_interface.h}}
+\doxysubsubsection{\texorpdfstring{predict\_network()}{predict\_network()}}
+{\footnotesize\ttfamily void predict\+\_\+network (\begin{DoxyParamCaption}\item[{void $\ast$}]{obj,  }\item[{\mbox{\hyperlink{structt__sample}{t\+\_\+sample}}}]{test }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Predic output of the neural network with the given instance called from python 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & -\/ Pointer to the neural network \\
+\hline
+{\em train} & -\/ Instance of input-\/output-\/error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file nn\+\_\+interface.\+c.
+
+\mbox{\Hypertarget{nn__interface_8h_a9ca30a2ca4a3768e6f958e77c2988471}\label{nn__interface_8h_a9ca30a2ca4a3768e6f958e77c2988471}} 
+\index{nn\_interface.h@{nn\_interface.h}!train\_network@{train\_network}}
+\index{train\_network@{train\_network}!nn\_interface.h@{nn\_interface.h}}
+\doxysubsubsection{\texorpdfstring{train\_network()}{train\_network()}}
+{\footnotesize\ttfamily void train\+\_\+network (\begin{DoxyParamCaption}\item[{void $\ast$}]{obj,  }\item[{\mbox{\hyperlink{structt__sample}{t\+\_\+sample}}}]{train }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Train the neural network with the given instance called from python 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & -\/ Pointer to the neural network \\
+\hline
+{\em train} & -\/ Instance of input-\/output-\/error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file nn\+\_\+interface.\+c.
+

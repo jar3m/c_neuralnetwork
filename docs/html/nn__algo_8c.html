@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NN: neural_network/src/nn_algo.c File Reference</title>
+<title>Prometheus: neural_network/src/nn_algo.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,8 +25,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NN
+   <div id="projectname">Prometheus
    </div>
+   <div id="projectbrief">A neural network implementation inc</div>
   </td>
  </tr>
  </tbody>
@@ -91,14 +92,16 @@ $(document).ready(function(){initNavTree('nn__algo_8c.html',''); initResizable()
 <p>Contains definitions of Neural network algos such as feedforward and backpropogation.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="nn__def_8h_source.html">nn_def.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="nn__algo_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a28c2c03fbc11417ca81908a9d5a39a24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nn__algo_8c.html#a28c2c03fbc11417ca81908a9d5a39a24">feed_forward_layer</a> (<a class="el" href="structnn__layer.html">t_layer</a> *l, <a class="el" href="nn__def_8h.html#a589ae16a6982e17c4037c924ec1c0630">e_nntype</a> type)</td></tr>
+<tr class="memitem:a28c2c03fbc11417ca81908a9d5a39a24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nn__algo_8c.html#a28c2c03fbc11417ca81908a9d5a39a24">feed_forward_layer</a> (<a class="el" href="nn__def_8h.html#a576ce112ef4e3a10bd8ce75ae173f102">t_layer</a> *l, <a class="el" href="nn__def_8h.html#a589ae16a6982e17c4037c924ec1c0630">e_nntype</a> type)</td></tr>
 <tr class="memdesc:a28c2c03fbc11417ca81908a9d5a39a24"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
  Feed forward a layer  <a href="nn__algo_8c.html#a28c2c03fbc11417ca81908a9d5a39a24">More...</a><br /></td></tr>
 <tr class="separator:a28c2c03fbc11417ca81908a9d5a39a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4faf6a34f03c828edb1984498024c19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nn__algo_8c.html#ac4faf6a34f03c828edb1984498024c19">back_propogate_layer</a> (<a class="el" href="structnn__layer.html">t_layer</a> *l, float eta, <a class="el" href="nn__def_8h.html#a589ae16a6982e17c4037c924ec1c0630">e_nntype</a> type)</td></tr>
+<tr class="memitem:ac4faf6a34f03c828edb1984498024c19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nn__algo_8c.html#ac4faf6a34f03c828edb1984498024c19">back_propogate_layer</a> (<a class="el" href="nn__def_8h.html#a576ce112ef4e3a10bd8ce75ae173f102">t_layer</a> *l, float eta, <a class="el" href="nn__def_8h.html#a589ae16a6982e17c4037c924ec1c0630">e_nntype</a> type)</td></tr>
 <tr class="memdesc:ac4faf6a34f03c828edb1984498024c19"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
  Backpropogate the current layer  <a href="nn__algo_8c.html#ac4faf6a34f03c828edb1984498024c19">More...</a><br /></td></tr>
 <tr class="separator:ac4faf6a34f03c828edb1984498024c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +117,8 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains definitions of Neural network algos such as feedforward and backpropogation. </p>
 <dl class="section author"><dt>Author</dt><dd>jar3m </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="nn__algo_8c_source.html">nn_algo.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a628a9ae4fbba3cff9eba35f75fd81756"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a628a9ae4fbba3cff9eba35f75fd81756">&#9670;&nbsp;</a></span>back_propogate()</h2>
@@ -153,6 +158,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- NA </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="nn__algo_8c_source.html#l00108">108</a> of file <a class="el" href="nn__algo_8c_source.html">nn_algo.c</a>.</p>
+
 </div>
 </div>
 <a id="ac4faf6a34f03c828edb1984498024c19"></a>
@@ -164,7 +171,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void back_propogate_layer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnn__layer.html">t_layer</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="nn__def_8h.html#a576ce112ef4e3a10bd8ce75ae173f102">t_layer</a> *&#160;</td>
           <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
@@ -198,6 +205,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- NA </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="nn__algo_8c_source.html#l00042">42</a> of file <a class="el" href="nn__algo_8c_source.html">nn_algo.c</a>.</p>
 
 </div>
 </div>
@@ -239,6 +248,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- NA </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="nn__algo_8c_source.html#l00082">82</a> of file <a class="el" href="nn__algo_8c_source.html">nn_algo.c</a>.</p>
+
 </div>
 </div>
 <a id="a28c2c03fbc11417ca81908a9d5a39a24"></a>
@@ -250,7 +261,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void feed_forward_layer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structnn__layer.html">t_layer</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="nn__def_8h.html#a576ce112ef4e3a10bd8ce75ae173f102">t_layer</a> *&#160;</td>
           <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
@@ -278,6 +289,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>- NA </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="nn__algo_8c_source.html#l00015">15</a> of file <a class="el" href="nn__algo_8c_source.html">nn_algo.c</a>.</p>
 
 </div>
 </div>

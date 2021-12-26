@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['back_5fpropogate_2',['back_propogate',['../nn__def_8h.html#a628a9ae4fbba3cff9eba35f75fd81756',1,'back_propogate(t_neural_network *nwk, float *output):&#160;nn_algo.c'],['../nn__algo_8c.html#a628a9ae4fbba3cff9eba35f75fd81756',1,'back_propogate(t_neural_network *nwk, float *output):&#160;nn_algo.c']]],
-  ['back_5fpropogate_5flayer_3',['back_propogate_layer',['../nn__algo_8c.html#ac4faf6a34f03c828edb1984498024c19',1,'nn_algo.c']]],
-  ['by_5fpass_4',['by_pass',['../structt__neuron.html#a1008cdcc4c1224d33ad06f5603118247',1,'t_neuron']]]
+  ['_5f_5finit_5f_5f_1',['__init__',['../classprometheus_1_1prometheus_1_1neural__network.html#ae64f0875afe3067b97ba370b354b9213',1,'prometheus.prometheus.neural_network.__init__()'],['../classprometheus_1_1prometheus_1_1std__typedefs.html#ae64f0875afe3067b97ba370b354b9213',1,'prometheus.prometheus.std_typedefs.__init__()'],['../classprometheus_1_1prometheus_1_1test.html#ae64f0875afe3067b97ba370b354b9213',1,'prometheus.prometheus.test.__init__()'],['../classprometheus_1_1prometheus_1_1prometheus.html#ae64f0875afe3067b97ba370b354b9213',1,'prometheus.prometheus.prometheus.__init__()']]],
+  ['_5f_5finit_5f_5f_2epy_2',['__init__.py',['../____init_____8py.html',1,'']]]
 ];

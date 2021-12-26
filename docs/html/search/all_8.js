@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['join_5flayers_41',['join_layers',['../nn__def_8h.html#a6d5444ee882542bd10b52dfd118dbbb5',1,'join_layers(t_layer *A, t_layer *B):&#160;nn_def.c'],['../nn__def_8c.html#a6d5444ee882542bd10b52dfd118dbbb5',1,'join_layers(t_layer *A, t_layer *B):&#160;nn_def.c']]]
+  ['h_5flayer_48',['h_layer',['../structt__neural__network.html#a85e0d1a26abe388f7beb89ca1b114e89',1,'t_neural_network']]],
+  ['hinfo_49',['hinfo',['../structt__nn__cfg.html#aa8dbef4bc500525101df642dbf1d5039',1,'t_nn_cfg']]]
 ];

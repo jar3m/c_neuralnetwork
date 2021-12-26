@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['d_5flinear_5factv_111',['d_linear_actv',['../nn__utils_8h.html#a765192aa660cc129f70de182bfa4123a',1,'nn_utils.c']]],
-  ['d_5frelu_112',['d_relu',['../nn__utils_8h.html#aabc80dc718ce8f2ecf0c413c6810435e',1,'nn_utils.c']]],
-  ['d_5fsigmoid_113',['d_sigmoid',['../nn__utils_8h.html#aec115b5be9e0d808663c43201a834f13',1,'nn_utils.c']]],
-  ['destroy_5flayer_114',['destroy_layer',['../nn__def_8h.html#adc0d8969214d8eff1cbe908aa53abadf',1,'destroy_layer(t_layer *l):&#160;nn_def.c'],['../nn__def_8c.html#adc0d8969214d8eff1cbe908aa53abadf',1,'destroy_layer(t_layer *l):&#160;nn_def.c']]],
-  ['destroy_5fneural_5fnetwork_115',['destroy_neural_network',['../nn__interface_8h.html#adaba74cabfa27f1750e96cc88a251636',1,'destroy_neural_network(void *nwk):&#160;nn_interface.c'],['../nn__interface_8c.html#a3824d0260308c046f5aa0cb36e3bce93',1,'destroy_neural_network(void *obj):&#160;nn_interface.c']]]
+  ['copy_5felem_156',['copy_elem',['../classprometheus_1_1prometheus_1_1prometheus.html#a602318e62de10e55bf8a67105835e0ad',1,'prometheus::prometheus::prometheus']]],
+  ['create_5fbrain_157',['create_brain',['../classprometheus_1_1prometheus_1_1prometheus.html#aab1910faf8f2f6b788f139685e6b3e6e',1,'prometheus::prometheus::prometheus']]],
+  ['create_5flayer_158',['create_layer',['../nn__def_8h.html#a86331bf0eddbcdaec1cc9f520cd01a3a',1,'create_layer(t_lyrinfo l):&#160;nn_def.c'],['../nn__def_8c.html#a86331bf0eddbcdaec1cc9f520cd01a3a',1,'create_layer(t_lyrinfo l):&#160;nn_def.c']]],
+  ['create_5fneural_5fnetwork_159',['create_neural_network',['../nn__interface_8h.html#ac1d0144e95419719de039f131cd848ac',1,'create_neural_network(t_nn_cfg config):&#160;nn_interface.c'],['../nn__interface_8c.html#ac1d0144e95419719de039f131cd848ac',1,'create_neural_network(t_nn_cfg config):&#160;nn_interface.c']]]
 ];

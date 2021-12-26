@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['activate_0',['activate',['../structt__neuron.html#ad45c50d219d636b5246a4427bf2d74b1',1,'t_neuron']]],
-  ['actv_1',['actv',['../structt__lyrinfo.html#af23cafbcb49fe18f3777ec231a28e707',1,'t_lyrinfo::actv()'],['../structnn__layer.html#af23cafbcb49fe18f3777ec231a28e707',1,'nn_layer::actv()']]]
+  ['_3cstrong_3eprometheus_20_3a_20a_20neural_20network_20kernel_20written_20in_20c_20and_20uses_20python_20wrappers_20for_20interacting_20with_20the_20kernel_3c_2fstrong_3e_0',['&lt;strong&gt;Prometheus : A Neural Network Kernel written in C and uses python wrappers for interacting with the kernel&lt;/strong&gt;',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NN: nn_layer Struct Reference</title>
+<title>Prometheus: nn_layer Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,8 +25,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NN
+   <div id="projectname">Prometheus
    </div>
+   <div id="projectbrief">A neural network implementation inc</div>
   </td>
  </tr>
  </tbody>
@@ -87,6 +88,8 @@ $(document).ready(function(){initNavTree('structnn__layer.html',''); initResizab
 <div class="title">nn_layer Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="nn__def_8h_source.html">nn_def.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -96,39 +99,35 @@ Data Fields</h2></td></tr>
 <tr class="memitem:af23cafbcb49fe18f3777ec231a28e707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="nn__def_8h.html#a5907cd7aa2dfa816a268ada64ac70343">e_atvfn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#af23cafbcb49fe18f3777ec231a28e707">actv</a></td></tr>
 <tr class="memdesc:af23cafbcb49fe18f3777ec231a28e707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of activation funtion for current layer.  <a href="structnn__layer.html#af23cafbcb49fe18f3777ec231a28e707">More...</a><br /></td></tr>
 <tr class="separator:af23cafbcb49fe18f3777ec231a28e707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1aa2f3094d3d47f87addba62e80d07e"><td class="memItemLeft" align="right" valign="top"><a id="af1aa2f3094d3d47f87addba62e80d07e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#af1aa2f3094d3d47f87addba62e80d07e">n_output</a></td></tr>
-<tr class="memdesc:af1aa2f3094d3d47f87addba62e80d07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">No of oututs to layer. <br /></td></tr>
+<tr class="memitem:af1aa2f3094d3d47f87addba62e80d07e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#af1aa2f3094d3d47f87addba62e80d07e">n_output</a></td></tr>
+<tr class="memdesc:af1aa2f3094d3d47f87addba62e80d07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">No of oututs to layer.  <a href="structnn__layer.html#af1aa2f3094d3d47f87addba62e80d07e">More...</a><br /></td></tr>
 <tr class="separator:af1aa2f3094d3d47f87addba62e80d07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee2594353b2756c7dd7122ee8ecfcc4"><td class="memItemLeft" align="right" valign="top"><a id="a4ee2594353b2756c7dd7122ee8ecfcc4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#a4ee2594353b2756c7dd7122ee8ecfcc4">n_input</a></td></tr>
-<tr class="memdesc:a4ee2594353b2756c7dd7122ee8ecfcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">No of inputs to layer. <br /></td></tr>
+<tr class="memitem:a4ee2594353b2756c7dd7122ee8ecfcc4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#a4ee2594353b2756c7dd7122ee8ecfcc4">n_input</a></td></tr>
+<tr class="memdesc:a4ee2594353b2756c7dd7122ee8ecfcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">No of inputs to layer.  <a href="structnn__layer.html#a4ee2594353b2756c7dd7122ee8ecfcc4">More...</a><br /></td></tr>
 <tr class="separator:a4ee2594353b2756c7dd7122ee8ecfcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77380f35a15a2e85ff1a61bc28f2697d"><td class="memItemLeft" align="right" valign="top"><a id="a77380f35a15a2e85ff1a61bc28f2697d"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#a77380f35a15a2e85ff1a61bc28f2697d">i_back_err</a></td></tr>
-<tr class="memdesc:a77380f35a15a2e85ff1a61bc28f2697d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's input errors used for backpropogation. <br /></td></tr>
+<tr class="memitem:a77380f35a15a2e85ff1a61bc28f2697d"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#a77380f35a15a2e85ff1a61bc28f2697d">i_back_err</a></td></tr>
+<tr class="memdesc:a77380f35a15a2e85ff1a61bc28f2697d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's input errors used for backpropogation.  <a href="structnn__layer.html#a77380f35a15a2e85ff1a61bc28f2697d">More...</a><br /></td></tr>
 <tr class="separator:a77380f35a15a2e85ff1a61bc28f2697d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac54e06c8890383292a3f6075b9e8e748"><td class="memItemLeft" align="right" valign="top"><a id="ac54e06c8890383292a3f6075b9e8e748"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#ac54e06c8890383292a3f6075b9e8e748">o_back_err</a></td></tr>
-<tr class="memdesc:ac54e06c8890383292a3f6075b9e8e748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's output errors used for backpropogation. <br /></td></tr>
+<tr class="memitem:ac54e06c8890383292a3f6075b9e8e748"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#ac54e06c8890383292a3f6075b9e8e748">o_back_err</a></td></tr>
+<tr class="memdesc:ac54e06c8890383292a3f6075b9e8e748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's output errors used for backpropogation.  <a href="structnn__layer.html#ac54e06c8890383292a3f6075b9e8e748">More...</a><br /></td></tr>
 <tr class="separator:ac54e06c8890383292a3f6075b9e8e748"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa92d3f73b33ca1a03e06415ee1db06eb"><td class="memItemLeft" align="right" valign="top"><a id="aa92d3f73b33ca1a03e06415ee1db06eb"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#aa92d3f73b33ca1a03e06415ee1db06eb">input</a></td></tr>
-<tr class="memdesc:aa92d3f73b33ca1a03e06415ee1db06eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's inputs. <br /></td></tr>
+<tr class="memitem:aa92d3f73b33ca1a03e06415ee1db06eb"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#aa92d3f73b33ca1a03e06415ee1db06eb">input</a></td></tr>
+<tr class="memdesc:aa92d3f73b33ca1a03e06415ee1db06eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's inputs.  <a href="structnn__layer.html#aa92d3f73b33ca1a03e06415ee1db06eb">More...</a><br /></td></tr>
 <tr class="separator:aa92d3f73b33ca1a03e06415ee1db06eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed212f452362fd47d3c6530a2433cbca"><td class="memItemLeft" align="right" valign="top"><a id="aed212f452362fd47d3c6530a2433cbca"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#aed212f452362fd47d3c6530a2433cbca">output</a></td></tr>
-<tr class="memdesc:aed212f452362fd47d3c6530a2433cbca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's outputs. <br /></td></tr>
+<tr class="memitem:aed212f452362fd47d3c6530a2433cbca"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#aed212f452362fd47d3c6530a2433cbca">output</a></td></tr>
+<tr class="memdesc:aed212f452362fd47d3c6530a2433cbca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's outputs.  <a href="structnn__layer.html#aed212f452362fd47d3c6530a2433cbca">More...</a><br /></td></tr>
 <tr class="separator:aed212f452362fd47d3c6530a2433cbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddab0593df5ee3a99a3011cae83305a"><td class="memItemLeft" align="right" valign="top"><a id="acddab0593df5ee3a99a3011cae83305a"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#acddab0593df5ee3a99a3011cae83305a">error</a></td></tr>
-<tr class="memdesc:acddab0593df5ee3a99a3011cae83305a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's errors (used only in Output layer) <br /></td></tr>
+<tr class="memitem:acddab0593df5ee3a99a3011cae83305a"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#acddab0593df5ee3a99a3011cae83305a">error</a></td></tr>
+<tr class="memdesc:acddab0593df5ee3a99a3011cae83305a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's errors (used only in Output layer)  <a href="structnn__layer.html#acddab0593df5ee3a99a3011cae83305a">More...</a><br /></td></tr>
 <tr class="separator:acddab0593df5ee3a99a3011cae83305a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50850e4c74e603b43c6829b694fe8ea7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__neuron.html">t_neuron</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnn__layer.html#a50850e4c74e603b43c6829b694fe8ea7">neuron</a></td></tr>
 <tr class="memdesc:a50850e4c74e603b43c6829b694fe8ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to layer's neurons.  <a href="structnn__layer.html#a50850e4c74e603b43c6829b694fe8ea7">More...</a><br /></td></tr>
 <tr class="separator:a50850e4c74e603b43c6829b694fe8ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00073">73</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
 <a id="af23cafbcb49fe18f3777ec231a28e707"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af23cafbcb49fe18f3777ec231a28e707">&#9670;&nbsp;</a></span>actv</h2>
 
@@ -143,6 +142,62 @@ float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 
 <p>Type of activation funtion for current layer. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="nn__def_8h.html#a5907cd7aa2dfa816a268ada64ac70343">e_atvfn</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00075">75</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="acddab0593df5ee3a99a3011cae83305a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acddab0593df5ee3a99a3011cae83305a">&#9670;&nbsp;</a></span>error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to layer's errors (used only in Output layer) </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00083">83</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="a77380f35a15a2e85ff1a61bc28f2697d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77380f35a15a2e85ff1a61bc28f2697d">&#9670;&nbsp;</a></span>i_back_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* i_back_err</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to layer's input errors used for backpropogation. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00079">79</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="aa92d3f73b33ca1a03e06415ee1db06eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92d3f73b33ca1a03e06415ee1db06eb">&#9670;&nbsp;</a></span>input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* input</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to layer's inputs. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00081">81</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
 
 </div>
 </div>
@@ -161,6 +216,44 @@ float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>Type of layer. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="nn__def_8h.html#aca4373668e015906405a9c21a4122e3b">e_ltype</a> </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00074">74</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="a4ee2594353b2756c7dd7122ee8ecfcc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ee2594353b2756c7dd7122ee8ecfcc4">&#9670;&nbsp;</a></span>n_input</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int n_input</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>No of inputs to layer. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00077">77</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="af1aa2f3094d3d47f87addba62e80d07e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1aa2f3094d3d47f87addba62e80d07e">&#9670;&nbsp;</a></span>n_output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int n_output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>No of oututs to layer. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00076">76</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
 </div>
 </div>
 <a id="a50850e4c74e603b43c6829b694fe8ea7"></a>
@@ -177,6 +270,44 @@ float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 
 <p>Pointer to layer's neurons. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structt__neuron.html">t_neuron</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00085">85</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="ac54e06c8890383292a3f6075b9e8e748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54e06c8890383292a3f6075b9e8e748">&#9670;&nbsp;</a></span>o_back_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* o_back_err</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to layer's output errors used for backpropogation. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00080">80</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
+
+</div>
+</div>
+<a id="aed212f452362fd47d3c6530a2433cbca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed212f452362fd47d3c6530a2433cbca">&#9670;&nbsp;</a></span>output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to layer's outputs. </p>
+
+<p class="definition">Definition at line <a class="el" href="nn__def_8h_source.html#l00082">82</a> of file <a class="el" href="nn__def_8h_source.html">nn_def.h</a>.</p>
 
 </div>
 </div>

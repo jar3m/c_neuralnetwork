@@ -1,0 +1,363 @@
+\hypertarget{nn__def_8h}{}\doxysection{neural\+\_\+network/inc/nn\+\_\+def.h File Reference}
+\label{nn__def_8h}\index{neural\_network/inc/nn\_def.h@{neural\_network/inc/nn\_def.h}}
+
+
+Contains declations of neural network structures.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structt__neuron}{t\+\_\+neuron}}
+\item 
+struct \mbox{\hyperlink{structt__lyrinfo}{t\+\_\+lyrinfo}}
+\item 
+struct \mbox{\hyperlink{structnn__layer}{nn\+\_\+layer}}
+\item 
+struct \mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nn__def_8h_aa0e397fa4f8ed042112c60a75aeb3c04}{WEIGHT\+\_\+\+UPPER\+\_\+\+LIMIT}}~1
+\item 
+\#define \mbox{\hyperlink{nn__def_8h_ad5d4a0035ff5e4f59232bcfeaffa3c0e}{WEIGHT\+\_\+\+LOWER\+\_\+\+LIMIT}}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef float($\ast$ \mbox{\hyperlink{nn__def_8h_a78d1de4c5fde4cff7878e7e682e368ba}{f\+\_\+actv\+\_\+fn}}) (float)
+\begin{DoxyCompactList}\small\item\em fn pointer(prototype) for activation function \end{DoxyCompactList}\item 
+typedef void $\ast$($\ast$ \mbox{\hyperlink{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}{f\+\_\+train\+\_\+fn}}) (void $\ast$)
+\begin{DoxyCompactList}\small\item\em fn pointer(prototype) for training function \end{DoxyCompactList}\item 
+typedef void $\ast$($\ast$ \mbox{\hyperlink{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}{f\+\_\+predict\+\_\+fn}}) (void $\ast$)
+\begin{DoxyCompactList}\small\item\em fn pointer(prototype) for predicion function \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structnn__layer}{nn\+\_\+layer}} \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}} \{ \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a7d42bbe855bdf41234ba7edb318d3741}{e\+REGRESS}}
+, \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a5c1720091758644dd5852f4aed1e38d8}{e\+CLASSIFY}}
+ \}
+\item 
+enum \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3b}{e\+\_\+ltype}} \{ \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3bae021d21935ae0e4b73bf2663b13cd3a4}{e\+INPUT}}
+, \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3ba1f295d6d9f79bfeb0691e60a363ae40c}{e\+HIDDEN}}
+, \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3ba974fda1f41cbe1305ff3f9a7b6db55dd}{e\+OUTPUT}}
+, \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3ba75346e73222912deb6036a2563f82170}{e\+UNDEF}} = -\/1
+ \}
+\item 
+enum \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}{e\+\_\+atvfn}} \{ \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343ab131710609fbf67e285b22c3281f6d18}{e\+LINEAR}}
+, \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a4f9eec37b956c86a6fdce06af8160c3f}{e\+RELU}}
+, \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a533ccc4eaea334f1efaadf20d2ee160c}{e\+SIGMOID}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nn__def_8h_a0b5ccb4743edb7d1fb54030c58901bf9}{feed\+\_\+forward}} (\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$nwk, float $\ast$input)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Run Backpropogation on neural network \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__def_8h_a628a9ae4fbba3cff9eba35f75fd81756}{back\+\_\+propogate}} (\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$nwk, float $\ast$output)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Run Backpropogation on neural network \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$ \mbox{\hyperlink{nn__def_8h_a86331bf0eddbcdaec1cc9f520cd01a3a}{create\+\_\+layer}} (\mbox{\hyperlink{structt__lyrinfo}{t\+\_\+lyrinfo}} l)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Create a layer given the layer info \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__def_8h_a6d5444ee882542bd10b52dfd118dbbb5}{join\+\_\+layers}} (\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$A, \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$B)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Interconnect Two layers Ex, I-\/H H-\/H H-\/O \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nn__def_8h_adc0d8969214d8eff1cbe908aa53abadf}{destroy\+\_\+layer}} (\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Destroy and free the given layer from memory \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains declations of neural network structures. 
+
+\begin{DoxyAuthor}{Author}
+jar3m 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nn__def_8h_ad5d4a0035ff5e4f59232bcfeaffa3c0e}\label{nn__def_8h_ad5d4a0035ff5e4f59232bcfeaffa3c0e}} 
+\index{nn\_def.h@{nn\_def.h}!WEIGHT\_LOWER\_LIMIT@{WEIGHT\_LOWER\_LIMIT}}
+\index{WEIGHT\_LOWER\_LIMIT@{WEIGHT\_LOWER\_LIMIT}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{WEIGHT\_LOWER\_LIMIT}{WEIGHT\_LOWER\_LIMIT}}
+{\footnotesize\ttfamily \#define WEIGHT\+\_\+\+LOWER\+\_\+\+LIMIT~0}
+
+
+
+Definition at line 12 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_aa0e397fa4f8ed042112c60a75aeb3c04}\label{nn__def_8h_aa0e397fa4f8ed042112c60a75aeb3c04}} 
+\index{nn\_def.h@{nn\_def.h}!WEIGHT\_UPPER\_LIMIT@{WEIGHT\_UPPER\_LIMIT}}
+\index{WEIGHT\_UPPER\_LIMIT@{WEIGHT\_UPPER\_LIMIT}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{WEIGHT\_UPPER\_LIMIT}{WEIGHT\_UPPER\_LIMIT}}
+{\footnotesize\ttfamily \#define WEIGHT\+\_\+\+UPPER\+\_\+\+LIMIT~1}
+
+
+
+Definition at line 11 of file nn\+\_\+def.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{nn__def_8h_a78d1de4c5fde4cff7878e7e682e368ba}\label{nn__def_8h_a78d1de4c5fde4cff7878e7e682e368ba}} 
+\index{nn\_def.h@{nn\_def.h}!f\_actv\_fn@{f\_actv\_fn}}
+\index{f\_actv\_fn@{f\_actv\_fn}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{f\_actv\_fn}{f\_actv\_fn}}
+{\footnotesize\ttfamily typedef float($\ast$ f\+\_\+actv\+\_\+fn) (float)}
+
+
+
+fn pointer(prototype) for activation function 
+
+
+
+Definition at line 14 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}\label{nn__def_8h_a6d1ecb2679063114a960a002c0e5d6e5}} 
+\index{nn\_def.h@{nn\_def.h}!f\_predict\_fn@{f\_predict\_fn}}
+\index{f\_predict\_fn@{f\_predict\_fn}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{f\_predict\_fn}{f\_predict\_fn}}
+{\footnotesize\ttfamily typedef void$\ast$($\ast$ f\+\_\+predict\+\_\+fn) (void $\ast$)}
+
+
+
+fn pointer(prototype) for predicion function 
+
+
+
+Definition at line 16 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}\label{nn__def_8h_a0e6c81a72bae832ea865e4f7be3a9b13}} 
+\index{nn\_def.h@{nn\_def.h}!f\_train\_fn@{f\_train\_fn}}
+\index{f\_train\_fn@{f\_train\_fn}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{f\_train\_fn}{f\_train\_fn}}
+{\footnotesize\ttfamily typedef void$\ast$($\ast$ f\+\_\+train\+\_\+fn) (void $\ast$)}
+
+
+
+fn pointer(prototype) for training function 
+
+
+
+Definition at line 15 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}\label{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}} 
+\index{nn\_def.h@{nn\_def.h}!t\_layer@{t\_layer}}
+\index{t\_layer@{t\_layer}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{t\_layer}{t\_layer}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structnn__layer}{nn\+\_\+layer}} \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}\label{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}} 
+\index{nn\_def.h@{nn\_def.h}!e\_atvfn@{e\_atvfn}}
+\index{e\_atvfn@{e\_atvfn}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{e\_atvfn}{e\_atvfn}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343}{e\+\_\+atvfn}}}
+
+Defines the type of activation function to be used for the layer \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eLINEAR@{eLINEAR}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eLINEAR@{eLINEAR}}}\mbox{\Hypertarget{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343ab131710609fbf67e285b22c3281f6d18}\label{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343ab131710609fbf67e285b22c3281f6d18}} 
+e\+LINEAR&Linear Activation function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eRELU@{eRELU}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eRELU@{eRELU}}}\mbox{\Hypertarget{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a4f9eec37b956c86a6fdce06af8160c3f}\label{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a4f9eec37b956c86a6fdce06af8160c3f}} 
+e\+RELU&Re\+LU Activation function. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSIGMOID@{eSIGMOID}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eSIGMOID@{eSIGMOID}}}\mbox{\Hypertarget{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a533ccc4eaea334f1efaadf20d2ee160c}\label{nn__def_8h_a5907cd7aa2dfa816a268ada64ac70343a533ccc4eaea334f1efaadf20d2ee160c}} 
+e\+SIGMOID&Sigmoid Activation function. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 42 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_aca4373668e015906405a9c21a4122e3b}\label{nn__def_8h_aca4373668e015906405a9c21a4122e3b}} 
+\index{nn\_def.h@{nn\_def.h}!e\_ltype@{e\_ltype}}
+\index{e\_ltype@{e\_ltype}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{e\_ltype}{e\_ltype}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{nn__def_8h_aca4373668e015906405a9c21a4122e3b}{e\+\_\+ltype}}}
+
+Defines the type of neural network layer \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eINPUT@{eINPUT}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eINPUT@{eINPUT}}}\mbox{\Hypertarget{nn__def_8h_aca4373668e015906405a9c21a4122e3bae021d21935ae0e4b73bf2663b13cd3a4}\label{nn__def_8h_aca4373668e015906405a9c21a4122e3bae021d21935ae0e4b73bf2663b13cd3a4}} 
+e\+INPUT&Input layer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eHIDDEN@{eHIDDEN}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eHIDDEN@{eHIDDEN}}}\mbox{\Hypertarget{nn__def_8h_aca4373668e015906405a9c21a4122e3ba1f295d6d9f79bfeb0691e60a363ae40c}\label{nn__def_8h_aca4373668e015906405a9c21a4122e3ba1f295d6d9f79bfeb0691e60a363ae40c}} 
+e\+HIDDEN&Hidden layer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eOUTPUT@{eOUTPUT}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eOUTPUT@{eOUTPUT}}}\mbox{\Hypertarget{nn__def_8h_aca4373668e015906405a9c21a4122e3ba974fda1f41cbe1305ff3f9a7b6db55dd}\label{nn__def_8h_aca4373668e015906405a9c21a4122e3ba974fda1f41cbe1305ff3f9a7b6db55dd}} 
+e\+OUTPUT&Output layer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUNDEF@{eUNDEF}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eUNDEF@{eUNDEF}}}\mbox{\Hypertarget{nn__def_8h_aca4373668e015906405a9c21a4122e3ba75346e73222912deb6036a2563f82170}\label{nn__def_8h_aca4373668e015906405a9c21a4122e3ba75346e73222912deb6036a2563f82170}} 
+e\+UNDEF&Undefined layer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 31 of file nn\+\_\+def.\+h.
+
+\mbox{\Hypertarget{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}\label{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}} 
+\index{nn\_def.h@{nn\_def.h}!e\_nntype@{e\_nntype}}
+\index{e\_nntype@{e\_nntype}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{e\_nntype}{e\_nntype}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630}{e\+\_\+nntype}}}
+
+Defines the type of neural network \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eREGRESS@{eREGRESS}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eREGRESS@{eREGRESS}}}\mbox{\Hypertarget{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a7d42bbe855bdf41234ba7edb318d3741}\label{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a7d42bbe855bdf41234ba7edb318d3741}} 
+e\+REGRESS&Regression Based Neural Network. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eCLASSIFY@{eCLASSIFY}!nn\_def.h@{nn\_def.h}}\index{nn\_def.h@{nn\_def.h}!eCLASSIFY@{eCLASSIFY}}}\mbox{\Hypertarget{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a5c1720091758644dd5852f4aed1e38d8}\label{nn__def_8h_a589ae16a6982e17c4037c924ec1c0630a5c1720091758644dd5852f4aed1e38d8}} 
+e\+CLASSIFY&Classification Based Neural Network. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file nn\+\_\+def.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nn__def_8h_a628a9ae4fbba3cff9eba35f75fd81756}\label{nn__def_8h_a628a9ae4fbba3cff9eba35f75fd81756}} 
+\index{nn\_def.h@{nn\_def.h}!back\_propogate@{back\_propogate}}
+\index{back\_propogate@{back\_propogate}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{back\_propogate()}{back\_propogate()}}
+{\footnotesize\ttfamily void back\+\_\+propogate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$}]{nwk,  }\item[{float $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Run Backpropogation on neural network 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Backpropagation}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Backpropagation}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em nwk} & -\/ Pointer to layer \\
+\hline
+{\em output} & -\/ Pointer to an output instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file nn\+\_\+algo.\+c.
+
+\mbox{\Hypertarget{nn__def_8h_a86331bf0eddbcdaec1cc9f520cd01a3a}\label{nn__def_8h_a86331bf0eddbcdaec1cc9f520cd01a3a}} 
+\index{nn\_def.h@{nn\_def.h}!create\_layer@{create\_layer}}
+\index{create\_layer@{create\_layer}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{create\_layer()}{create\_layer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}}$\ast$ create\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__lyrinfo}{t\+\_\+lyrinfo}}}]{l }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Create a layer given the layer info 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ layer info \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structt__lyrinfo}{t\+\_\+lyrinfo}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+-\/ Pointer to the created layer 
+\end{DoxyReturn}
+
+
+Definition at line 49 of file nn\+\_\+def.\+c.
+
+\mbox{\Hypertarget{nn__def_8h_adc0d8969214d8eff1cbe908aa53abadf}\label{nn__def_8h_adc0d8969214d8eff1cbe908aa53abadf}} 
+\index{nn\_def.h@{nn\_def.h}!destroy\_layer@{destroy\_layer}}
+\index{destroy\_layer@{destroy\_layer}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_layer()}{destroy\_layer()}}
+{\footnotesize\ttfamily void destroy\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Destroy and free the given layer from memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & -\/ Pointer of the layer to be destroyed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file nn\+\_\+def.\+c.
+
+\mbox{\Hypertarget{nn__def_8h_a0b5ccb4743edb7d1fb54030c58901bf9}\label{nn__def_8h_a0b5ccb4743edb7d1fb54030c58901bf9}} 
+\index{nn\_def.h@{nn\_def.h}!feed\_forward@{feed\_forward}}
+\index{feed\_forward@{feed\_forward}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{feed\_forward()}{feed\_forward()}}
+{\footnotesize\ttfamily void feed\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__neural__network}{t\+\_\+neural\+\_\+network}} $\ast$}]{nwk,  }\item[{float $\ast$}]{input }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Run Backpropogation on neural network 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Feedforward_neural_network}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Feedforward\+\_\+neural\+\_\+network}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em nwk} & -\/ Pointer to Neural network \\
+\hline
+{\em input} & -\/ Pointer to an input instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file nn\+\_\+algo.\+c.
+
+\mbox{\Hypertarget{nn__def_8h_a6d5444ee882542bd10b52dfd118dbbb5}\label{nn__def_8h_a6d5444ee882542bd10b52dfd118dbbb5}} 
+\index{nn\_def.h@{nn\_def.h}!join\_layers@{join\_layers}}
+\index{join\_layers@{join\_layers}!nn\_def.h@{nn\_def.h}}
+\doxysubsubsection{\texorpdfstring{join\_layers()}{join\_layers()}}
+{\footnotesize\ttfamily void join\+\_\+layers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$}]{A,  }\item[{\mbox{\hyperlink{nn__def_8h_a576ce112ef4e3a10bd8ce75ae173f102}{t\+\_\+layer}} $\ast$}]{B }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Interconnect Two layers Ex, I-\/H H-\/H H-\/O 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & -\/ Pointer of the layer to be connected \\
+\hline
+{\em B} & -\/ Pointer of the layer to be connected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ NA 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file nn\+\_\+def.\+c.
+
