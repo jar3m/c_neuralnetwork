@@ -1,37 +1,104 @@
-## Welcome to GitHub Pages
+# **Prometheus : A Neural Network Kernel written in C and uses python wrappers for interacting with the kernel**
 
-You can use the [editor on GitHub](https://github.com/jar3m/n_n/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## BUILD
+To build the neural network C library that will be interface with python
 
-### Markdown
+make clean; make
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+## RUN
+The python driver app is required to pass a json file containg the configurations to prometheus module
 
-- Bulleted
-- List
+./prometheus/test.py -i examples/iris/iris.json
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Cfg file
+The input config file consists of two major configurations
+* `"neural_nw_lib_path"`: Path to the C shared library containing the neural network kernel
+* `"neural_nw_config"`: Contains neural network configuration info
+  "Config"| Description
+  --------|--------------
+  `"neural_nw_type"`| can either be `"REGRESS"` or `"CLASSIFY"`
+  `"num_input"`| number of input
+  `"num_output"`| number of output
+  `"learning_rate"`| learning rate of the neural newtwork
+  `"oactv"`| output activation function required only if `"neural_nw_type"` = `"CLASSIFY"`
+  `"normalization"`| `"L1"` or `"L2"` `(Note curently L1 is supported L2 needs to be implemeneted)`
+  `"num_hidden_layers"`| number of hidden layers and for each hidden layer define proporties
+  `"hl_prop"`| list of all hidden layers properties
 
-[Link](url) and ![Image](src)
+
+  "hl_prop"| list of all hidden layers properties to be define for each hiden layer
+  ---------|------------------------------------
+    `"actv_fn"`| `"LINEAR"`, `"RELU"`, `"SIGMOID"`
+    `"size"`| size of the hidden layer ,i.e, No of neurons
+
+* `"neural_network_test"`: Contains neural network input-output and train-test info
+  Config  | Description
+  --------|--------------
+  `"test_file"`| Path to the file containg input-outputs used for training and testing usually a .csv or .xlsx `(Note: current support is for .csv)`
+  `"delim"`| Delimiter in case of csv file
+  `"inputs"`| List of label names that has to be considered as inputs `(Note: size of lablel list should be same as `"num_input"`)`
+  `"outputs"`| List of label names that has to be considered as outputs `(Note: size of lablel list should be same as `"num_output"`)`
+  `"ntrain"`| Percentage of the data to be used for training and the remaining is used for testing
+  `"shuffle"`| Shuffle the data set if `1` do not shuffle if `0`
+  `"epochs"`| no of training epochs `(Note: Currently only 1 is supported)`
+  `"training_method"`| Training method `"Batch"` is only supported currently
+  `"mean_std_scale"`| optional field mean scale the given labels
+  `"min_max_scale"`| optional field min max scale the given labels
+  `"stdv_scale"`| optional field standard deviation based scale the given labels
+  `"hot_encode"`| optional field if Categorical variable present hot encode the outputs. more info refer `examples/iris/iris.json`
+
+
+## Folders
+Folder | Description
+-------|------------
+common| os includes
+neural_network| Contains sources that define the neural network in C
+prometheus| contains the python wrapper module
+docs| contains Code documentation
+example|example configs tested bc_diag, tree_wilt and iris
+
+[doxygen code documentation](https://github.com/jar3m/n_n/tree/master/docs/html/index.html)
+
+## Using `prometheus` module
+Below is a code snippet that shows how to use and call the prometheus module
+
+```python
+import sys, getopt
+from prometheus import prometheus
+
+
+p1 = prometheus()
+p1.fetch_configs(sys.argv[1:])
+p1.create_brain()
+p1.teach_brain()
+p1.sentient_brain()
+p1.destroy_brain()
+
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Future Scope (Highly optimistic)
+* Graphs and plots to analyse input/output
+* GUI based cfg selection
+* Adding Convolutional layer
+* Neural network(Scaling,bounding/probalistic,)
+* Training-strategy(loss Index and Optimization)
+* Data-analysis(data validity and analysis)
+* Model-selection(regress to get optimized model)
+* Testing-analysis(How good did we do?)
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jar3m/n_n/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Current Scope
+We have classification working but regression has some problems and seem to be beyond my scope of understanding any help will be appreciated
 
-### Support or Contact
+### Contributors
+[jar3m](https://github.com/jar3m)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[kamalakannan-s](https://github.com/kamalakannan-s)
+
+[BlindCentaur](https://github.com/BlindCentaur)
+
+If interested in developing further join our [discord](https://discord.gg/q42YmYahpe)
