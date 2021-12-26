@@ -1,6 +1,5 @@
 # **Prometheus : A Neural Network Kernel written in C and uses python wrappers for interacting with the kernel**
 
-[doxygen code documentation](https://github.com/jar3m/n_n/docs/html/index.html)
 
 ## BUILD
 To build the neural network C library that will be interface with python
@@ -41,8 +40,8 @@ The input config file consists of two major configurations
   --------|--------------
   `"test_file"`| Path to the file containg input-outputs used for training and testing usually a .csv or .xlsx `(Note: current support is for .csv)`
   `"delim"`| Delimiter in case of csv file
-  `"inputs"`| List of label names that has to be considered as inputs `(Note: size of lablel list should be same as `"num_input"`)
-  `"outputs"`| List of label names that has to be considered as outputs `(Note: size of lablel list should be same as `"num_output"`)
+  `"inputs"`| List of label names that has to be considered as inputs `(Note: size of lablel list should be same as `"num_input"`)`
+  `"outputs"`| List of label names that has to be considered as outputs `(Note: size of lablel list should be same as `"num_output"`)`
   `"ntrain"`| Percentage of the data to be used for training and the remaining is used for testing
   `"shuffle"`| Shuffle the data set if `1` do not shuffle if `0`
   `"epochs"`| no of training epochs `(Note: Currently only 1 is supported)`
@@ -55,11 +54,14 @@ The input config file consists of two major configurations
 
 ## Folders
 Folder | Description
+-------|------------
 common| os includes
 neural_network| Contains sources that define the neural network in C
 prometheus| contains the python wrapper module
 docs| contains Code documentation
+example|example configs tested bc_diag, tree_wilt and iris
 
+[doxygen code documentation](https://github.com/jar3m/n_n/tree/master/docs/html/index.html)
 
 ## Using `prometheus` module
 Below is a code snippet that shows how to use and call the prometheus module
