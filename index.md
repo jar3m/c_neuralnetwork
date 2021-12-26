@@ -1,9 +1,9 @@
-# **Prometheus : A Neural Network Kernel in C **
+# Prometheus : A Neural Network Kernel in C 
 
 The neural network kernel is written in C and iterfaced with python.
 The python module also takes care input-output and train-test data parsing and analysis
 
-[doxygen code documentation](https://github.com/jar3m/n_n/tree/gh-pages/docs/html/index.html)
+[doxygen code documentation](https://jar3m.github.io/n_n/docs/html/index.html)
 
 ## BUILD
 To build the neural network C library that will be interface with python
@@ -22,7 +22,8 @@ The python driver app is required to pass a json file containg the configuration
 The input config file consists of two major configurations
 * `"neural_nw_lib_path"`: Path to the C shared library containing the neural network kernel
 * `"neural_nw_config"`: Contains neural network configuration info
-  "Config"| Description
+
+  Config| Description
   --------|--------------
   `"neural_nw_type"`| can either be `"REGRESS"` or `"CLASSIFY"`
   `"num_input"`| number of input
@@ -40,7 +41,8 @@ The input config file consists of two major configurations
     `"size"`| size of the hidden layer ,i.e, No of neurons
 
 * `"neural_network_test"`: Contains neural network input-output and train-test info
-  Config  | Description
+ 
+ Config  | Description
   --------|--------------
   `"test_file"`| Path to the file containg input-outputs used for training and testing usually a .csv or .xlsx `(Note: current support is for .csv)`
   `"delim"`| Delimiter in case of csv file
