@@ -1,0 +1,29 @@
+{
+	"neural_nw_lib_path": "/mnt/d/workspaces/linux/n_n/neural_network/bin/neural_network.so",
+	"neural_nw_config":{
+			"neural_nw_type":"CLASSIFY",
+			"num_input":4,
+			"num_output":3,
+			"learning_rate":0.1,
+			"num_hidden_layers":1,
+			"hl_prop":[
+					{"actv_fn":"SIGMOID", "size":5}
+			],
+			"oactv":"SIGMOID",
+			"normalization":"L1"
+   },
+
+	"neural_network_test":{
+		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/iris/iris_flowers.csv",
+		   "delim":",",
+		   "inputs":["sepal_length","sepal_width","petal_length","petal_width"],
+		   "outputs":["iris_setosa","iris_versicolor","iris_virginica"],
+		   "ntrain":60,
+		   "shuffle":1,
+		   "mean_std_scale":["sepal_length","sepal_width","petal_length", "petal_width"],
+		   "training_method":"batch",
+		   "hot_encode": ["class"],
+		   "epochs":1
+	}
+
+}

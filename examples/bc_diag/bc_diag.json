@@ -1,0 +1,28 @@
+{
+	"neural_nw_lib_path": "/mnt/d/workspaces/linux/n_n/neural_network/bin/neural_network.so",
+	"neural_nw_config":{
+			"neural_nw_type":"CLASSIFY",
+			"num_input":9,
+			"num_output":1,
+			"learning_rate":0.1,
+			"num_hidden_layers":1,
+			"hl_prop":[
+					{"actv_fn":"SIGMOID", "size":13}
+			],
+			"oactv":"SIGMOID",
+			"normalization":"L1"
+   },
+
+	"neural_network_test":{
+		   "test_file": "/mnt/d/workspaces/linux/n_n/examples/bc_diag/bc_diag.csv",
+		   "delim":",",
+		   "ntrain":60,
+		   "inputs":["clump_thickness","cell_size_uniformity","cell_shape_uniformity","marginal_adhesion","single_epithelial_cell_size","bare_nuclei","bland_chromatin","normal_nucleoli","mitoses"],
+		   "outputs":["diagnose"],
+		   "shuffle":1,
+		   "mean_std_scale":["clump_thickness","cell_size_uniformity","cell_shape_uniformity","marginal_adhesion","single_epithelial_cell_size","bare_nuclei","bland_chromatin","normal_nucleoli","mitoses"],
+		   "training_method":"batch",
+		   "epochs":1
+	}
+
+}
