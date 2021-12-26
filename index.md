@@ -59,6 +59,7 @@ The input config file consists of two major configurations
 
 
 ## Folders
+
 Folder | Description
 -------|------------
 common| os includes
@@ -68,7 +69,7 @@ docs| contains Code documentation
 example|example configs tested bc_diag, tree_wilt and iris
 
 
-## Using `prometheus` module
+## Using prometheus module in your python code
 Below is a code snippet that shows how to use and call the prometheus module
 
 ```python
