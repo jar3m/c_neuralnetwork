@@ -3,7 +3,7 @@
 The neural network kernel is written in C and iterfaced with python.
 The python module also takes care input-output and train-test data parsing and analysis
 
-[doxygen code documentation](https://github.com/jar3m/n_n/tree/gh-pages/docs/html/index.html)
+[doxygen code documentation](https://github.com/jar3m/c_neuralnetwork/tree/gh-pages/docs/html/index.html)
 
 ## BUILD
 To build the neural network C library that will be interface with python
