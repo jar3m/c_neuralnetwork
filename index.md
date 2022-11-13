@@ -108,3 +108,6 @@ We have classification working but regression has some problems and seem to be b
 [BlindCentaur](https://github.com/BlindCentaur)
 
 If interested in developing further join our [discord](https://discord.gg/q42YmYahpe)
+
+<meta name="keywords" content="C, neural network, simple neural network, back propogation, python, feed forward, iris flower">
+<meta name="google-site-verification" content="7aTMIese6mJbonitvZKRbqsT5IGWhpynYjv7YXhXAi0" />
