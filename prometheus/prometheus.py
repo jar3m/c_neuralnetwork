@@ -11,7 +11,7 @@ import os
 import csv
 import time
 import pandas as pd
-
+pd.options.mode.chained_assignment = None
 ## @class  c_lyrinfo 
 # Python struct equivalent @see t_lyrinfo
 class c_lyrinfo(Structure):
@@ -106,7 +106,7 @@ class test(object):
         if scale_type == "MIN_MAX":
             self.data[col] = (self.data[col] - self.data.min()[col]) / (self.data.max()[col] - self.data.min()[col])
         elif scale_type == "MEAN_STDV":
-            self.data[col] = (self.data[col] - self.data.mean()[col])/ self.data.std()[col]
+            self.data[col] = (self.data[col] - self.data.mean(numeric_only=True)[col])/ self.data.std(numeric_only=True)[col]
         elif scale_type == "STDV":
             self.data[col] = self.data[col] / self.data.std()[col]
 
